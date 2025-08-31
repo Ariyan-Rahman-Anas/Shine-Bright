@@ -51,7 +51,7 @@ const CheckoutForm = () => {
     const dispatch = useDispatch()
     const { selected } = useSelector((state: any) => state.category)
     const loggedInUserSelector = useSelector(loggedInUser)
-    const { id, first_name, last_name, phone, email, country_code } = loggedInUserSelector?.basicInfo || {}
+    const { id, first_name, last_name, phone, email, country_code } = loggedInUserSelector || {}
     const {data: customerData} = useGetCustomerByIdQuery(id)
     const userPrimaryAddress = customerData?.data?.userProfile?.find((item: any) => item.is_primary == true)
     // const {address, area, thana:loggedInUserThana, city:loggedInUserCity, country:loggedInUserCountry, postal_code, zone} = userPrimaryAddress || {}
@@ -215,7 +215,7 @@ const CheckoutForm = () => {
 
     // order create API
     const [createOrder, { data: orderCreatedData, isSuccess: isCreatedOrder, isError: isCreatedOrderError, error: orderCreateError }] = useCreateOrderMutation()
-    const finalClientId = clientId ? clientId : loggedInUserSelector?.basicInfo?.id
+    const finalClientId = clientId ? clientId : loggedInUserSelector
 
     const handlePlaceOrder = async () => {
         if (!paymentMethod) {

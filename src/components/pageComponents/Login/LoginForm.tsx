@@ -3,53 +3,65 @@
 import PasswordInputField from "@/components/shared/PasswordInputField";
 import SecondaryButton from "@/components/shared/SecondaryButton";
 import SocialLogin from "@/components/shared/SocialLogin";
-import { useApiResponseEffects } from "@/hooks/useApiResponseEffects";
-import { useUserLoginMutation } from "@/redux/api/authApi";
+import CheckBox from "@/components/shared/CheckBox";
+import { siteEmail, siteInfo, sitePassword } from "@/constant";
 import { setUser } from "@/redux/features/authSlice";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { toast } from "sonner";
 
 const LoginForm = () => {
     const dispatch = useDispatch()
+    const [loading, setLoading] = useState(false)
+    const [keepLoggedIn, setKeepLoggedIn] = useState(false)
+    const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null)
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const [userLogin, {
-        data: userLoginData,
-        isLoading: isLogging,
-        error: loginError,
-        isSuccess,
-        isError
-    }] = useUserLoginMutation();
+    // Cleanup timeout on component unmount
+    useEffect(() => {
+        return () => {
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+        };
+    }, [timeoutId]);
+
+    // Handle checkbox toggle
+    const handleKeepLoggedIn = () => {
+        setKeepLoggedIn(prev => !prev)
+    }
 
     const onSubmit = async (data: any) => {
-        const response = await userLogin({
-            identifier: data.email,
-            password: data.password
-        }).unwrap();
-        dispatch(setUser({
-            basicInfo: response?.data?.user,
-            accessToken: response?.data?.accessToken,
-            refreshToken: response?.data?.refreshToken
-        }));
+        setLoading(true)
 
-        // Store tokens in cookies so middleware can access them
-        document.cookie = `taupenotch_access_token=${response?.data?.accessToken}; path=/`;
-        document.cookie = `taupenotch_refresh_token=${response?.data?.refreshToken}; path=/`;
+        const loadingTimer = setTimeout(() => {
+            if (data.email !== siteEmail) {
+                toast.error("Unauthenticated Email")
+                setLoading(false)
+                setTimeoutId(null)
+                return;
+            }
 
-        // window.location.reload()
+            if (data.password !== sitePassword) {
+                toast.error("Invalid Password")
+                setLoading(false)
+                setTimeoutId(null)
+                return;
+            }
+
+            dispatch(setUser({
+                user: siteInfo,
+                keepLoggedIn: keepLoggedIn
+            }));
+            toast.success("Successfully Logged In!")
+            setLoading(false)
+            setTimeoutId(null)
+        }, 2000);
+
+        setTimeoutId(loadingTimer);
     };
-
-    // Handle API responses
-    useApiResponseEffects({
-        isSuccess,
-        isError,
-        errorData: loginError,
-        successData: userLoginData,
-        redirectTo: "/"
-    });
-
-
 
     return (
         <div className="w-full max-w-lg mx-auto">
@@ -57,10 +69,12 @@ const LoginForm = () => {
                 <div className="flex flex-col w-full">
                     <label htmlFor="email">Email/Phone<span className="text-lg text-error ">*</span></label>
                     <input
-                        type="text"
+                        type="email"
                         id="email"
                         placeholder="Enter Email"
-                        className={`input-field ${errors.email ? 'border-red-500' : ''}`}
+                        required
+                        defaultValue={siteEmail}
+                        className={`input-field`}
                         {...register("email")}
                     />
                 </div>
@@ -69,6 +83,7 @@ const LoginForm = () => {
                     id="password"
                     label="Password"
                     placeholder="Enter Password"
+                    dValue={sitePassword}
                     required
                     error={errors.password}
                     register={register}
@@ -79,23 +94,28 @@ const LoginForm = () => {
 
                 <SecondaryButton
                     bType="submit"
-                    title={isLogging ? "Logging In..." : "Sign In"}
+                    title={loading ? "Logging In..." : "Sign In"}
                     className="w-full md:w-[80%] text-base font-medium uppercase py-2"
-                    disabled={isLogging}
+                    disabled={loading}
                 />
             </form>
+
             <div className="flex items-center justify-between w-full my-8">
-                <div className="flex items-center gap-2">
-                    <input type="checkbox" />
-                    <label htmlFor="">Keep me Logged in</label>
-                </div>
+                <CheckBox
+                    label="Keep me Logged in"
+                    onClick={handleKeepLoggedIn}
+                    checked={keepLoggedIn}
+                    isCenter={true}
+                />
                 <div>
                     <Link href="/reset-password" className="text-blackCustom hover:underline underline-offset-2 ">Forgot Password?</Link>
                 </div>
             </div>
+
             <SocialLogin />
             <p className="text-center mt-4 ">{`Don't have an account? `}<Link href="/registration" className="text-blackCustom font-semibold underline underline-offset-2 ">Create one</Link></p>
         </div>
     )
 }
+
 export default LoginForm

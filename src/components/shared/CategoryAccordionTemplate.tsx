@@ -19,7 +19,7 @@ const CategoryAccordionTemplate = ({ title, content, description = "Collections 
                 <AccordionTrigger className="px-2">
                     <div className="flex items-center gap-2 ">
                         <div className="w-[30%] " >
-                            <Image src={images.P1} alt="product" className="w-full h-full" />
+                            <Image src={images.outlet1} alt="product" className="w-full h-full" />
                         </div>
                         <div className="w-[70%] " >
                             <h1 className="font-semibold" >{title}</h1>

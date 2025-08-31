@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+  font-family: var(--font-chivo), var(--font-bayon);
+}
+
+.page-setup{
+  @apply w-full max-w-1600 mx-auto mb-16 px-4 sm:px-6 lg:px-8
+}
+.section-setup-1600{
+  @apply w-full max-w-1600 mx-auto sm:px-6 lg:px-8
+}
+.section-setup-1600-p{
+  @apply w-full max-w-1600 mx-auto px-4 sm:px-6 lg:px-8
+}
+.section-setup-1400{
+  @apply w-full max-w-1400 mx-auto sm:px-6 lg:px-8
+}
+.section-setup-1400-p{
+  @apply w-full max-w-1400 mx-auto py-8 px-4 sm:px-6 lg:px-8
+}
+.section-setup-1200{
+  @apply w-full max-w-1200 mx-auto px-4 sm:px-6 lg:px-8
+}
+.section-setup{
+  @apply w-full py-8 px-4 sm:px-6 lg:px-8
+}
+
+.input-field {
+  @apply border rounded-md w-full px-3 py-2 bg-transparent placeholder:text-sm;
+}
+.custom-grid {
+  @apply grid gap-4;
+  grid-template-columns: repeat(4, 368px) 184px;
+}
+
+.m-gradient-text{
+  @apply font-bayon text-2xl md:text-5xl bg-gradient-to-r inline-block text-transparent bg-clip-text from-mBtnBg to-mColor14
+}
+.s-gradient-text{
+  @apply font-bayon text-2xl md:text-5xl bg-gradient-to-r inline-block text-transparent bg-clip-text from-sBtnBg to-sColor10
+}
+
+.mOverlay{
+  /* @apply bg-gradient-to-t from-mColor15 to-mColor16 text-blackCustom */
+  @apply bg-gradient-to-t from-mBtnBg/35 to-mBtnBg/60 text-whiteCustom
+}
+.sOverlay{
+  /* @apply bg-gradient-to-t from-sColor12 to-sColor13 text-whiteCustom */
+  @apply bg-gradient-to-t from-sBtnBg/35 to-sBtnBg/60 text-whiteCustom
+}
+
+.mBtn{
+  /* @apply bg-mColor11 text-blackCustom  */
+  @apply bg-mBtnBg text-whiteCustom 
+}
+.sBtn{
+  /* @apply text-whiteCustom bg-gradient-to-r from-sColorBase2 to-sColorBase3 */
+  @apply text-whiteCustom bg-sBtnBg
+}
+.mBtn:hover, .sBtn:hover{
+  @apply bg-blackCustom text-whiteCustom
+}
+.mBtn:disabled, .sBtn:disabled{
+  @apply text-error bg-bColor1/40
+}
+
+
+.sub-heading{
+  @apply text-xl font-semibold uppercase
+}
+
+
+.is-section {
+  @apply border-[1px] border-lime-600 bg-red-600
+}
+
+.badge{
+  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ring-1 ring-inset
+}
+.badge-green{
+  @apply text-success bg-success/10 ring-success/30 
+}
+.badge-yellow{
+  @apply text-yellow-800 bg-warning/10 ring-warning/30
+}
+.badge-blue{
+  @apply text-info bg-info/10 ring-info/30
+}
+.badge-red{
+  @apply text-error bg-error/10 ring-error/30
+}
+
+
+.check-box{
+@apply w-[.88rem] h-[.88rem] border-2 rounded transition-all duration-200 bg-transparent border-bColor1 flex items-center justify-center cursor-pointer text-whiteCustom
+}
+.m-checkbox{
+  @apply bg-mBtnBg border-mBtnBg 
+}
+.s-checkbox{
+  @apply bg-sBtnBg border-sBtnBg
+}
+
+.cart-inside-icon{
+  @apply h-8 w-8 flex items-center justify-center border-2 border-bColor1 bg-transparent rounded cursor-pointer
+}
+.cart-inside-icon-trash{
+  @apply h-8 w-fit px-2 flex items-center justify-center border-2 text-error border-error bg-transparent rounded cursor-pointer
+}
+
+
+.is-border{
+  @apply border-2 border-error
+}
+
+
+.custom-rich-text li {
+  list-style-type: disc;
+  margin-left: 1.25rem;
+}
+
+
+
+
+
+
+
+
+/*====--- custom scroll bar ---====*/
+::-webkit-scrollbar {
+  width: 0.35rem;
+}
+::-webkit-scrollbar-track {
+  /* background-color: #ffffff; */
+}
+::-webkit-scrollbar-thumb {
+  background: #abc0ab;
+  border-radius: 0.8rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7e9e7e;
+}
+
+/* Custom CSS */
+.no-scrollbar {
+  scrollbar-width: none; /* For Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
+
+
+
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

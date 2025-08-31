@@ -2,9 +2,12 @@
 import { icons } from "@/assets"
 import PrimaryButton from "@/components/shared/PrimaryButton"
 import SecondaryButton from "@/components/shared/SecondaryButton"
+import { email } from "@/constant"
 import Image from "next/image"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
+import { BsWhatsapp } from "react-icons/bs"
+import { IoCallOutline } from "react-icons/io5"
 import { useSelector } from "react-redux"
 
 const ContactForm = () => {
@@ -24,24 +27,20 @@ const ContactForm = () => {
             <div className="flex flex-col md:flex-row items-start gap-4 text-bColor4 mt-6 text-sm ">
                 <div className="space-y-4 min-w-fit ">
                     <div className="p-4 flex items-start gap-2 border-2 border-bColor1 rounded-md ">
-                        <div>
-                            <Image src={icons.TelephoneCall} alt="telephone call" className="w-8 h-8" />
-                        </div>
+                        <IoCallOutline className="text-3xl" />
                         <div className="">
                             <h2>Call Us</h2>
-                            <Link href="tel:+8801838331990" className="text-blackCustom font-semibold " >(+880) 18383-31990</Link>
+                            <Link href="tel:+8801838331990" className="text-blackCustom font-semibold " >(+880) 1610-195968</Link>
                             <p>Monday – Friday: 9:00 – 20:00</p>
-                            <p>Saturady: 11:00 – 15:00</p>
+                            <p>Saturday: 11:00 – 15:00</p>
                         </div>
                     </div>
-                    <div className="p-4 flex items-start gap-2 border-2 border-bColor1 rounded-md ">
-                        <div>
-                            <Image src={icons.WhatsappOutline} alt="whatsapp" className="w-8 h-8" />
-                        </div>
+                    <div className="p-4 flex items-start gap-1 border-2 border-bColor1 rounded-md ">
+                        <BsWhatsapp className="text-3xl pr-1"/>
                         <div className="">
                             <h2>Whatsapp Live Chat Support</h2>
-                            <Link href="https://wa.me/8801838331990" className="text-blackCustom font-semibold " >(+880) 18383-31990</Link>
-                            <PrimaryButton to="/" title="Live Chat"
+                            <Link href="https://wa.me/8801838331990" className="text-blackCustom font-semibold " >(+880) 1610-195968</Link>
+                            <PrimaryButton to="https://wa.me/8801838331990" title="Live Chat"
                                 className={`font-semibold text-sm px-10 py-1.5 mt-2 ${selected === "makeup" ? "text-blackCustom bg-mColor3/80" : "text-whiteCustom bg-sColor6"}`} />
                         </div>
                     </div>
@@ -53,7 +52,7 @@ const ContactForm = () => {
                         </div>
                         <div>
                             <h2>Mail Us</h2>
-                            <Link href="mailto:info@taupenotch.com.bd" className="text-blackCustom font-semibold " >info@taupenotch.com.bd</Link>
+                            <Link href="mailto:info@taupenotch.com.bd" className="text-blackCustom font-semibold " >{email}</Link>
                         </div>
                     </div>
                     <form className="space-y-2">

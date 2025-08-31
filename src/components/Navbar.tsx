@@ -47,7 +47,7 @@ const Navbar = () => {
   };
 
   const loggedInUserSelector = useSelector(loggedInUser)
-  const { id, email, country_code, phone, first_name, last_name, photo_url } = loggedInUserSelector?.basicInfo || {}
+  const { id, email, country_code, phone, first_name, last_name } = loggedInUserSelector || {}
     const {data: customerData} = useGetCustomerByIdQuery(id)
     const userPrimaryAddress = customerData?.data?.userProfile?.find((item: any) => item.is_primary == true)
     const {address, area, thana, city, country, postal_code, zone} = userPrimaryAddress || {}
@@ -180,7 +180,7 @@ const Navbar = () => {
                   <div className='flex md:flex-row flex-col items-center justify-between gap-6'>
                     <div className='flex items-center w-full md:w-fit justify-between gap-2'>
                       <div className='w-24 h-24 rounded-full border-2 border-mColor6 object-cover '>
-                        <Image src={photo_url ?? images?.imgNotAvailable} alt="user" className='w-full h-full object-cover rounded-full ' />
+                        <Image src={images.imgNotAvailable} alt="user" className='w-full h-full object-cover rounded-full ' />
                       </div>
                       <SecondaryButton title="Change Picture" className='px-4 py-2 md:hidden text-base' />
                     </div>

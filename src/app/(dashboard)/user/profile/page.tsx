@@ -12,7 +12,7 @@ const UserProfilePage = () => {
   const { selected } = useSelector((state: any) => state.category)
 
   const loggedInUserSelector = useSelector(loggedInUser)
-  const {data: ordersData} = useGetOrdersDataByUserIdQuery(loggedInUserSelector?.basicInfo?.id)
+  const {data: ordersData} = useGetOrdersDataByUserIdQuery(loggedInUserSelector)
 
 
   return (

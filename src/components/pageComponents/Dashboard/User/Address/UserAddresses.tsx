@@ -6,7 +6,7 @@ import { useSelector } from "react-redux"
 
 const UserAddresses = () => {
     const loggedInUserSelector = useSelector(loggedInUser)
-    const { id, first_name } = loggedInUserSelector?.basicInfo || {}
+    const { id, first_name } = loggedInUserSelector || {}
     const { data: customerData } = useGetCustomerByIdQuery(id)
 
     return (

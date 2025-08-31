@@ -62,7 +62,7 @@ const OrderTrackingModal = ({ data }: any) => {
                                             register={register}
                                             name="email"
                                             type="email"
-                                            value={loggedInUserSelector?.basicInfo?.email}
+                                            value={loggedInUserSelector?.email}
                                             readOnly={true}
                                         />
                                     </div>

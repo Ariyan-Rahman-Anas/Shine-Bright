@@ -2,7 +2,7 @@
 import { icons } from "@/assets"
 import PrimaryButton from "@/components/shared/PrimaryButton"
 import SecondaryButton from "@/components/shared/SecondaryButton"
-import { email } from "@/constant"
+import { siteInfo } from "@/constant"
 import Image from "next/image"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
@@ -52,7 +52,7 @@ const ContactForm = () => {
                         </div>
                         <div>
                             <h2>Mail Us</h2>
-                            <Link href="mailto:info@taupenotch.com.bd" className="text-blackCustom font-semibold " >{email}</Link>
+                            <Link href="mailto:info@taupenotch.com.bd" className="text-blackCustom font-semibold " >{siteInfo.email}</Link>
                         </div>
                     </div>
                     <form className="space-y-2">

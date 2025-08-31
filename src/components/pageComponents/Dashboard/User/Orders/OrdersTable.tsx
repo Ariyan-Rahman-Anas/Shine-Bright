@@ -15,7 +15,7 @@ const OrdersTable = () => {
     const { selected } = useSelector((state: any) => state.category)
 
     const loggedInUserSelector = useSelector(loggedInUser)
-    const { data: ordersData, isError, error } = useGetOrdersDataByUserIdQuery(loggedInUserSelector?.basicInfo?.id)
+    const { data: ordersData, isError, error } = useGetOrdersDataByUserIdQuery(loggedInUserSelector)
 
     const profileColumns = [
         { key: 'order_id', header: 'Order ID' },

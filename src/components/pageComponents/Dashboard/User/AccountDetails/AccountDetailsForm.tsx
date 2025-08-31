@@ -11,14 +11,14 @@ import { useApiResponseEffects } from "@/hooks/useApiResponseEffects";
 const AccountDetailsForm = () => {
     const { selected } = useSelector((state: any) => state.category)
     const loggedInUserSelector = useSelector(loggedInUser)
-    const { first_name, last_name, email, phone} = loggedInUserSelector?.basicInfo || {}
+    const { first_name, last_name, email, phone} = loggedInUserSelector || {}
 
     const [updateCustomer, { isError, isSuccess, error, data }] = useUpdateCustomerMutation()
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data: any) => {
         console.log(data);
-        updateCustomer({ id: loggedInUserSelector?.basicInfo?.id, data }).unwrap()
+        updateCustomer({ id: loggedInUserSelector, data }).unwrap()
     }
 
     useApiResponseEffects({

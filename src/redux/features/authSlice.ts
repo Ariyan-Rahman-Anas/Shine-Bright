@@ -3,23 +3,15 @@ import { RootState } from "../store";
 
 export interface AuthState {
   user: {
-    basicInfo?: {
-      id: string;
-      email: string;
-      phone: string;
-      country_code: string;
-      first_name: string;
-      last_name: string;
-      is_deleted: boolean;
-      created_at: string;
-      last_password_change: string;
-      photo_url: string;
-      user_role: string;
-      user_type: string;
-      user_status: string;
-    };
-    accessToken: string | null;
-    refreshToken: string | null;
+    id: string;
+    email: string;
+    phone: string;
+    country_code: string;
+    first_name: string;
+    last_name: string;
+    user_role: string;
+    user_type: string;
+    user_status: string;
   } | null;
 }
 
@@ -45,5 +37,3 @@ export default authSlice.reducer;
 
 // selectors
 export const loggedInUser = (state: RootState) => state.auth.user;
-export const accessToken = (state: RootState) => state.auth.user?.accessToken;
-export const refreshToken = (state: RootState) => state.auth.user?.refreshToken;

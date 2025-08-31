@@ -17,6 +17,7 @@ interface PasswordInputProps {
     isLabel?: boolean;
     disabled?: boolean;
     autoComplete?: string;
+    dValue?:string
 }
 
 const PasswordInputField: React.FC<PasswordInputProps> = ({
@@ -31,6 +32,7 @@ const PasswordInputField: React.FC<PasswordInputProps> = ({
     isLabel = true,
     disabled = false,
     autoComplete = "current-password",
+    dValue
 }) => {
     const [showPassword, setShowPassword] = useState(false);
 
@@ -58,13 +60,9 @@ const PasswordInputField: React.FC<PasswordInputProps> = ({
                     type={showPassword ? "text" : "password"}
                     placeholder={placeholder}
                     disabled={disabled}
+                    defaultValue={dValue}
                     autoComplete={autoComplete}
-                    className={`
-                       input-field 
-                        
-                        
-                     
-                    `}
+                    className={`input-field`}
                     aria-invalid={!!error}
                     aria-required={required}
                     aria-describedby={error ? `${inputId}-error` : undefined}

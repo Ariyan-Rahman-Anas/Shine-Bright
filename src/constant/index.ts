@@ -1,7 +1,17 @@
 import { icons, images } from "@/assets";
 
+
+export const siteInfo = {
+  name: "Shine Bright",
+  email: "user@shine-bright.com",
+  password: "SB@Acc#123",
+  number:  "+880 1610-195968"
+}
+
 export const siteName = "Shine Bright"
-export const email = "info@shine-bright.com"
+export const siteEmail = "info@shine-bright.com"
+export const sitePassword = "SB@Acc#123"
+export const siteNumber = "+880 1610-195968"
 export const siteURL = "https://shine-bright.vercel.app"
 
 export const domPurifyAllowedTags = [
@@ -145,21 +155,21 @@ export const allItemsCommon = [
 
 
 export const allBrands = [
-  {id: 1, title: "Dr.Althea"},
-  {id: 2, title: "Glow Recipe"},
-  {id: 3, title: "Kiko Milano"},
-  {id: 4, title: "Laneige"},
-  {id: 5, title: "Mac Cosmetics"},
-  {id: 6, title: "Maybelline"},
-  {id: 7, title: "Nyx Cosmetics"},
-  {id: 8, title: "Patrick Ta Beauty"},
-  {id: 9, title: "Revolution"},
-  {id: 10, title: "Sheglam"},
-  {id: 11, title: "ELF"},
-  {id: 12, title: "ELF-cD"},
-  {id: 13, title: "Blowf"},
-  {id: 14, title: "Chaif"},
-  {id: 15, title: "Giana"},
+  { id: 1, title: "Dr.Althea" },
+  { id: 2, title: "Glow Recipe" },
+  { id: 3, title: "Kiko Milano" },
+  { id: 4, title: "Laneige" },
+  { id: 5, title: "Mac Cosmetics" },
+  { id: 6, title: "Maybelline" },
+  { id: 7, title: "Nyx Cosmetics" },
+  { id: 8, title: "Patrick Ta Beauty" },
+  { id: 9, title: "Revolution" },
+  { id: 10, title: "Sheglam" },
+  { id: 11, title: "ELF" },
+  { id: 12, title: "ELF-cD" },
+  { id: 13, title: "Blowf" },
+  { id: 14, title: "Chaif" },
+  { id: 15, title: "Giana" },
 ]
 
 

@@ -80,7 +80,7 @@ export const allItems = [
   },
 ]
 
-export const allItemsForMakeup = [
+export const allItemsCommon = [
   {
     title: "New Trending",
     items: [
@@ -140,8 +140,7 @@ export const allItemsForMakeup = [
       { name: "Personalized", route: "/personalized" },
       { name: "Personalizable", route: "/personalizable" },
     ]
-  },
-
+  }
 ]
 
 

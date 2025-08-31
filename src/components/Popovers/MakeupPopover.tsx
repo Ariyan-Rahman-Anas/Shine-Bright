@@ -7,7 +7,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
-import { allItemsForMakeup } from "@/constant"
+import { allItemsCommon } from "@/constant"
 
 const MakeupPopover = () => {
     const [open, setOpen] = useState(false)
@@ -39,7 +39,7 @@ const MakeupPopover = () => {
                     <div className="w-full mt-6">
                         <ul className="flex items-start justify-between gap-2">
                             {
-                                allItemsForMakeup.map(({ title, items }, index) => (
+                                allItemsCommon.map(({ title, items }, index) => (
                                     <li key={index}>
                                         <h2 className="text-base font-semibold" >{title}</h2>
                                         <ul className={`grid gap-2 mt-2 text-sm text-bColor3 ${items?.length > 10 ? "grid-cols-2" : "grid-cols-1"} `}>

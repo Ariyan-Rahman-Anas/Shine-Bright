@@ -1,5 +1,8 @@
 import { icons, images } from "@/assets";
 
+export const siteName = "Shine Bright"
+export const email = "info@shine-bright.com"
+export const siteURL = "https://shine-bright.vercel.app"
 
 export const domPurifyAllowedTags = [
     'p', 'strong', 'span', 'em', 'b', 'i', 'br', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'a', 'img', 'table', 'thead', 'tbody', 'tr', 'td', 'th'
@@ -82,19 +85,19 @@ export  const teamMembers = [
             img: images.T3,
             designation: "CEO & Founder",
             name: "Shaila Tabassum",
-            details: "the visionary leader Who has been the driving force behind Taupe Notch's extraordinary achievement. With 7 years of experience in the beauty industry , Shirin has a proven track record of advising appropriate products according to consumer’s concern. Under her leadership, Taupe Notch has become popular in Bangladesh and favorite to beauty enthusiasts . She has launched Taupe Notch’s own glitter and highlighter."
+            details: `{the visionary leader Who has been the driving force behind ${siteName}'s extraordinary achievement. With 7 years of experience in the beauty industry , Shirin has a proven track record of advising appropriate products according to consumer’s concern. Under her leadership, ${siteName} has become popular in Bangladesh and favorite to beauty enthusiasts . She has launched ${siteName}'’s own glitter and highlighter.}`
         },
         {
             img: images.T2,
             designation: "COO & Co-Founder",
             name: "Tanjin Esha",
-            details: "the dynamic leader who have led Taupe Notch to remarkable success. He had the original vision for this company, and his unwavering passion has been instrumental in its growth. Meanwhile, he has brought exceptional operational expertise and strategic thinking to the table, ensuring that our vision becomes a reality. He have created a powerful synergy that has propelled Taupe Notch to the forefront of the beauty industry."
+            details: `{the dynamic leader who have led ${siteName} to remarkable success. He had the original vision for this company, and his unwavering passion has been instrumental in its growth. Meanwhile, he has brought exceptional operational expertise and strategic thinking to the table, ensuring that our vision becomes a reality. He have created a powerful synergy that has propelled ${siteName} to the forefront of the beauty industry.}`
         },
         {
             img: images.T1,
             designation: "CPO & Co-Founder",
             name: "M.A. Atique",
-            details: "With a distinguished career spanning 4 years, He brings a wealth of experience and expertise to TAUPE NOTCH .He helps in developing and implementing the company's long-term strategy, setting goals, and making key decisions. Under his leadership, we're confident that TAUPE NOTCH will continue to thrive and innovate."
+            details: `{With a distinguished career spanning 4 years, He brings a wealth of experience and expertise to ${siteName}. He helps in developing and implementing the company's long-term strategy, setting goals, and making key decisions. Under his leadership, we're confident that ${siteName} will continue to thrive and innovate.}`
         }
     ]
 
@@ -174,3 +177,304 @@ export const AllProducts = [
         shades:["#FF0000", "#00FF00", "#0000FF", "#C68B59", "#DBA36B", "#EDBB94", "#F5C3A8", "#F8CFC0", "#F9D2C4", "#FADAD0", "#FFF1DC", "#00FF07", "#0000FF"],
     }
 ]
+
+
+export   const refundPolicy = [
+    {
+      id: 1,
+      title: "Eligibility for Refund",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 2,
+      title: "We offer two refund windows",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 3,
+      title: "Refund Process",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 4,
+      title: "Late or Missing Refunds",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+        "If you’ve done all of this and still haven’t received your refund, please contact us at info@shine-bright.com or (+880) 1610-195968."
+      ]
+    },
+    {
+      id: 5,
+      title: "No Refund or Cancellation Policy (if applicable)",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 6,
+      title: "Changes to this Refund Policy",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+  ]
+
+
+  export   const deliveryPolicy = [
+    {
+      id: 1,
+      title: "Order Processing Time",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 2,
+      title: "Shipping Addresses",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 3,
+      title: "Shipping Restrictions",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 4,
+      title: "Delivery Confirmation",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+        "If you’ve done all of this and still haven’t received your refund, please contact us at info@shine-bright.com or (+880) 1610-195968."
+      ]
+    },
+    {
+      id: 5,
+      title: "Shipping Delays",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 6,
+      title: "Returns Due to Non-Delivery",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 7,
+      title: "Contact Information",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+]
+  
+
+export   const privacyPolicy = [
+    {
+      id: 1,
+      title: "Information We Collect",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 2,
+      title: "We collect this information when you",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 3,
+      title: "How We Use Your Information",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 4,
+      title: "Information Sharing",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+        "If you’ve done all of this and still haven’t received your refund, please contact us at info@shine-bright.com or (+880) 18383-31990."
+      ]
+    },
+    {
+      id: 5,
+      title: "Your Rights",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+  ]
+
+  export const contactInfo = [
+    {
+      id: 1,
+      title: "Cookies",
+      terms: [
+       "Our website uses cookies and similar technologies to enhance your browsing experience. You can manage your cookie preferences through your browser settings."
+      ]
+    },
+    {
+      id: 1,
+      title: "Changes to This Privacy Policy",
+      terms: [
+       "We reserve the right to update or modify this Privacy Policy at any time. Any changes will be effective immediately upon posting the revised policy on our website."
+      ]
+    },
+    {
+      id: 1,
+      title: "Contact Us",
+      terms: [
+        "If you have any questions, concerns, or requests regarding this Privacy Policy or the handling of your personal information, please contact us at info@shine-bright.com.",
+        "This Privacy Policy was last updated on 10/07/2024."
+      ]
+    },
+]
+  
+
+export const termsAndCondition = [
+    {
+      id: 1,
+      title: "Acceptance of Terms",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 2,
+      title: "Amendments",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 3,
+      title: "Eligibility",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 4,
+      title: "Accounts and Registration",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+        "If you’ve done all of this and still haven’t received your refund, please contact us at info@shine-bright.com or (+880) 1610-195968."
+      ]
+    },
+    {
+      id: 5,
+      title: "Use of the Website",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 6,
+      title: "Product Information",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 7,
+      title: "Pricing",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 8,
+      title: "Orders and Payments",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 9,
+      title: "Shipping and Delivery",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 10,
+      title: "Return and Refund Policy",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 11,
+      title: "Limitation of Liability",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 12,
+      title: "Intellectual Property",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 13,
+      title: "Governing Law",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+    {
+      id: 14,
+      title: "Contact Us",
+      terms: [
+        "To be eligible for a refund, the item must be unused and in the same condition that you received it. It must also be in the original packaging.",
+        "Items that are damaged, used, or not in their original condition may not be eligible for a refund.",
+      ]
+    },
+  ]

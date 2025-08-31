@@ -11,10 +11,13 @@ const Outlet = () => {
     const { selected } = useSelector((state: any) => state.category)
 
     const gallery = [
-        images.shop1,
-        images.shop2,
-        images.shop3,
-        images.shop4,
+        images.outlet1,
+        images.outlet2,
+        images.outlet3,
+        images.outlet4,
+        images.outlet5,
+        images.outlet6,
+        images.outlet7,
     ]
 
     return (

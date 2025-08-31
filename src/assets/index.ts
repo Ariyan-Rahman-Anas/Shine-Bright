@@ -73,10 +73,6 @@ import WhatsApp from "./../../public/icons/WhatsApp.svg";
 import Shop from "./../../public/icons/Shop.svg";
 import Location from "./../../public/icons/Location.svg";
 import ShopLocationQrCode from "./../../public/images/shop-location-qr-code.svg";
-import shop1 from "./../../public/images/shop1.jpg";
-import shop2 from "./../../public/images/shop2.jpg";
-import shop3 from "./../../public/images/shop3.jpg";
-import shop4 from "./../../public/images/shop4.jpg";
 import play from "./../../public/icons/play.svg";
 import HandshakeHeart from "./../../public/icons/HandshakeHeart.svg";
 import ProductDetailsBg from "./../../public/images/product-details-bg.svg";
@@ -92,6 +88,13 @@ import Amex from "./../../public/icons/payment-methods/Amex.svg";
 import Union from "./../../public/icons/payment-methods/Union.svg";
 import OrderPlaced from "./../../public/icons/order-placed.svg";
 import OrderCancel from "./../../public/icons/order-cancel.svg";
+import outlet1 from "./../../public/images/outlets/1.jpg";
+import outlet2 from "./../../public/images/outlets/2.jpg";
+import outlet3 from "./../../public/images/outlets/3.jpg";
+import outlet4 from "./../../public/images/outlets/4.jpg";
+import outlet5 from "./../../public/images/outlets/5.jpg";
+import outlet6 from "./../../public/images/outlets/6.jpg";
+import outlet7 from "./../../public/images/outlets/7.jpg";
 
 
 
@@ -182,10 +185,12 @@ export const images = {
     Rev1,
     T1,T2, T3,
     ShopLocationQrCode,
-    shop1,
-    shop2,
-    shop3,
-    shop4,
-    ProductDetailsBg
+    ProductDetailsBg,
+    outlet1,
+    outlet2,
+    outlet3,
+    outlet4,
+    outlet5,
+    outlet6,
+    outlet7,
 }
-

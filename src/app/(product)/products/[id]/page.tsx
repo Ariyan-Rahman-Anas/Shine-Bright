@@ -136,7 +136,7 @@ const ProductDetailsPage: React.FC = () => {
     const handleSizeSelect = useCallback((size: string, sizeId?: string) => {
         setSelectedSize(size);
         setSelectedSizeId(sizeId || null);
-    }, [selectedSize]);
+    }, []);
 
     const processItems = [
         {

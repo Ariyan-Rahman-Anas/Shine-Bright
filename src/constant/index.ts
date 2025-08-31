@@ -3,7 +3,8 @@ import { icons, images } from "@/assets";
 
 export const siteInfo = {
   name: "Shine Bright",
-  email: "user@shine-bright.com",
+  email: "info@shine-bright.com",
+  userEmail: "user@shine-bright.com",
   password: "SB@Acc#123",
   number:  "+880 1610-195968"
 }

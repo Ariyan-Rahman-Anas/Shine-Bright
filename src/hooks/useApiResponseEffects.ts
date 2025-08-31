@@ -1,4 +1,3 @@
-import { catchApiError } from "@/lib/catchApiError";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { toast } from "sonner";
@@ -13,18 +12,10 @@ interface UseApiResponseEffectsProps {
 
 export const useApiResponseEffects = ({
     isSuccess,
-    isError,
-    errorData,
     successData,
     redirectTo
 }: UseApiResponseEffectsProps) => {
     const router = useRouter();
-
-    useEffect(() => {
-        if (isError) {
-            catchApiError(errorData);
-        }
-    }, [isError, errorData]);
 
     useEffect(() => {
         if (isSuccess) {

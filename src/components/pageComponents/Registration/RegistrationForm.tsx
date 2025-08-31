@@ -5,7 +5,7 @@ import SearchableDropdown from "@/components/shared/SearchableDropdown"
 import SecondaryButton from "@/components/shared/SecondaryButton"
 import SocialLogin from "@/components/shared/SocialLogin"
 import { useUserRegistrationMutation } from "@/redux/api/authApi"
-import {  useState } from "react"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useApiResponseEffects } from "@/hooks/useApiResponseEffects"
 import { countryCodes } from "@/constant"
@@ -54,32 +54,35 @@ const RegistrationForm = () => {
                 className="space-y-4 w-full flex flex-col items-center justify-center"
                 noValidate
             >
-                {/* First Name */}
-                <div className="flex flex-col w-full">
-                    <label htmlFor="first_name" className="text-sm font-medium text-gray-700">
-                        First Name <span className="text-red-500 text-lg">*</span>
-                    </label>
-                    <input
-                        type="text"
-                        id="first_name"
-                        placeholder="Enter First Name"
-                        className={`input-field`}
-                        {...register("first_name", { required: true })}
-                    />
-                </div>
 
-                {/* Last Name */}
-                <div className="flex flex-col w-full">
-                    <label htmlFor="last_name" className="text-sm font-medium text-gray-700">
-                        Last Name <span className="text-red-500 text-lg">*</span>
-                    </label>
-                    <input
-                        type="text"
-                        id="last_name"
-                        placeholder="Enter Last Name"
-                        className={`input-field`}
-                        {...register("last_name", { required: true })}
-                    />
+                <div className="flex flex-col md:flex-row items-center gap-4 w-full">
+                    {/* First Name */}
+                    <div className="w-full md:w-[60%] flex flex-col">
+                        <label htmlFor="first_name" className="text-sm font-medium text-gray-700">
+                            First Name <span className="text-red-500 text-lg">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="first_name"
+                            placeholder="Enter First Name"
+                            className={`input-field`}
+                            {...register("first_name", { required: true })}
+                        />
+                    </div>
+
+                    {/* Last Name */}
+                    <div className="w-full md:w-[40%] flex flex-col">
+                        <label htmlFor="last_name" className="text-sm font-medium text-gray-700">
+                            Last Name <span className="text-red-500 text-lg">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="last_name"
+                            placeholder="Enter Last Name"
+                            className={`input-field`}
+                            {...register("last_name", { required: true })}
+                        />
+                    </div>
                 </div>
 
                 {/* Email */}
@@ -97,24 +100,26 @@ const RegistrationForm = () => {
                 </div>
 
                 {/* Phone with Country Code */}
-                <div className="flex items-start gap-2 w-full ">
-                    <SearchableDropdown
-                        isLabel={true}
-                        label="Country Code"
-                        options={countryCodes}
-                        value={selectedCountryCode}
-                        onChange={(value) => {
-                            setSelectedCountryCode(value as string);
-                            setValue('country_code', value);
-                        }}
-                        placeholder="Select Code"
-                        searchPlaceholder="Search Country Code"
-                        clearable
-                        required={true}
-                        maxHeight="250px"
-                        isSearchable={true}
-                        className={`w-full border h-full min-w-44 ${errors.country_code ? 'border-red-500' : ''}`}
-                    />
+                <div className="flex items-start gap-4 w-full ">
+                    <div>
+                        <SearchableDropdown
+                            isLabel={true}
+                            label="Country"
+                            options={countryCodes}
+                            value={selectedCountryCode}
+                            onChange={(value) => {
+                                setSelectedCountryCode(value as string);
+                                setValue('country_code', value);
+                            }}
+                            placeholder="Code"
+                            searchPlaceholder="Search Country Code"
+                            clearable
+                            required={true}
+                            maxHeight="250px"
+                            isSearchable={true}
+                            className={`w-28 border h-full md:w-32 ${errors.country_code ? 'border-red-500' : ''}`}
+                        />
+                   </div>
 
                     <div className="flex flex-col w-full">
                         <label htmlFor="phone" className="text-sm font-medium text-gray-700">

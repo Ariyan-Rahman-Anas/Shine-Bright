@@ -70,7 +70,7 @@ const Footer = () => {
         className={`${selected === "makeup" ? "bg-mNavFooter" : "bg-sNavFooter"} p-4 text-blackCustom flex items-end justify-between gap-2 pt-16 `}
       >
         <div className="w-full max-w-1400 mx-auto">
-          <Link href="/" className="w-fit font-yellowtail font-semibold tracking-widest text-3xl">
+          <Link href="/" className="w-fit font-yellowtail font-semibold tracking-widest text-2xl md:text-3xl">
               Shine-Bright
           </Link>
           <div className=" flex flex-col lg:flex-row itemsend gap-x-32 mt-8 space-y-8 lg:space-y-0 ">

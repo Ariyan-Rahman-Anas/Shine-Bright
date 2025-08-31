@@ -48,9 +48,9 @@ const Navbar = () => {
 
   const loggedInUserSelector = useSelector(loggedInUser)
   const { id, email, country_code, phone, first_name, last_name } = loggedInUserSelector || {}
-    const {data: customerData} = useGetCustomerByIdQuery(id)
-    const userPrimaryAddress = customerData?.data?.userProfile?.find((item: any) => item.is_primary == true)
-    const {address, area, thana, city, country, postal_code, zone} = userPrimaryAddress || {}
+  const { data: customerData } = useGetCustomerByIdQuery(id)
+  const userPrimaryAddress = customerData?.data?.userProfile?.find((item: any) => item.is_primary == true)
+  const { address, area, thana, city, country, postal_code, zone } = userPrimaryAddress || {}
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -110,7 +110,7 @@ const Navbar = () => {
 
           {/* centered logo */}
           <Link href="/" className="hover:opacity-90 transition-opacity">
-            <h1 className="font-yellowtail font-semibold tracking-widest text-3xl md:text6xl lgtext-7xl">Shine-Bright</h1>
+            <h1 className="font-yellowtail font-semibold tracking-widest text-3xl">Shine-Bright</h1>
           </Link>
 
           {/* top right items */}
@@ -225,9 +225,7 @@ const Navbar = () => {
 
           {/* Mobile Logo */}
           <Link href="/" className="hover:opacity-90 transition-opacity">
-            <div className="w-36">
-              <Image src={icons.Logo2} alt="Logo" className="w-full h-full" />
-            </div>
+            <h1 className="font-yellowtail font-semibold tracking-widest text-2xl">Shine-Bright</h1>
           </Link>
 
           {/* Mobile Right Icons */}

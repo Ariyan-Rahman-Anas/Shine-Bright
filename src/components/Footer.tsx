@@ -6,7 +6,7 @@ import { useSelector } from "react-redux"
 import Link from "next/link"
 import { MdEmail, MdPhone } from "react-icons/md"
 import { FaFacebookF, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa"
-import { siteEmail, siteNumber } from "@/constant"
+import { siteInfo } from "@/constant"
 
 const Footer = () => {
   const { selected } = useSelector((state: any) => state.category)
@@ -78,11 +78,11 @@ const Footer = () => {
               <div className="w-full ">
                 <div className="flex items-center gap-2">
                   <MdEmail />
-                  <p>{siteEmail}</p>
+                  <p>{siteInfo.email}</p>
                 </div>
                 <div className="flex items-center gap-2 my-2 ">
                   <MdPhone />
-                  <p>{siteNumber}</p>
+                  <p>{siteInfo.number}</p>
                 </div>
                 <p>Shop-01, 11th floor, Sanmar Ocean City Shopping, GEC, Chattogram, Bangladesh.</p>
               </div>

@@ -4,16 +4,18 @@ import PasswordInputField from "@/components/shared/PasswordInputField";
 import SecondaryButton from "@/components/shared/SecondaryButton";
 import SocialLogin from "@/components/shared/SocialLogin";
 import CheckBox from "@/components/shared/CheckBox";
-import { siteInfo, sitePassword } from "@/constant";
+import { userInfo } from "@/constant";
 import { setUser } from "@/redux/features/authSlice";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
     const dispatch = useDispatch()
+    const router = useRouter()
     const [loading, setLoading] = useState(false)
     const [keepLoggedIn, setKeepLoggedIn] = useState(false)
     const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null)
@@ -37,25 +39,23 @@ const LoginForm = () => {
         setLoading(true)
 
         const loadingTimer = setTimeout(() => {
-            if (data.email !== siteInfo.userEmail) {
+            if (data.email !== userInfo.email) {
                 toast.error("Unauthenticated Email")
                 setLoading(false)
                 setTimeoutId(null)
                 return;
             }
 
-            if (data.password !== sitePassword) {
+            if (data.password !== userInfo.password) {
                 toast.error("Invalid Password")
                 setLoading(false)
                 setTimeoutId(null)
                 return;
             }
 
-            dispatch(setUser({
-                user: siteInfo,
-                keepLoggedIn: keepLoggedIn
-            }));
+            dispatch(setUser(userInfo));
             toast.success("Successfully Logged In!")
+            router.replace("/")
             setLoading(false)
             setTimeoutId(null)
         }, 2000);
@@ -73,7 +73,7 @@ const LoginForm = () => {
                         id="email"
                         placeholder="Enter Email"
                         required
-                        defaultValue={siteInfo.userEmail}
+                        defaultValue={userInfo.email}
                         className={`input-field`}
                         {...register("email")}
                     />
@@ -83,7 +83,7 @@ const LoginForm = () => {
                     id="password"
                     label="Password"
                     placeholder="Enter Password"
-                    dValue={sitePassword}
+                    dValue={userInfo.password}
                     required
                     error={errors.password}
                     register={register}

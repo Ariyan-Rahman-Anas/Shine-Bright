@@ -1,6 +1,6 @@
 "use client"
 
-import { siteName, siteURL, termsAndCondition } from "@/constant"
+import { siteInfo, termsAndCondition } from "@/constant"
 import Link from "next/link"
 import { useSelector } from "react-redux"
 
@@ -9,8 +9,8 @@ const TermsAndCondition = () => {
   
   return (
     <div className="text-sm text-bColor4">
-      <h1 className="sub-heading" >{`${siteName}'s Terms & Conditions`} </h1>
-      <p className="mt-2" >{`Welcome to  ${siteName}.  These Terms and Conditions outline the rules and regulations for the use of our website, located at `} <Link target="_blank" href={siteURL} className={`${selected === "makeup" ? "text-mBtnBg" : "text-sBtnBg"} underline`}>{siteName}</Link>. By accessing or using our site, you agree to be bound by these terms. If you do not agree to all the terms, please refrain from using our website. </p>
+      <h1 className="sub-heading" >{`${siteInfo.name}'s Terms & Conditions`} </h1>
+      <p className="mt-2" >{`Welcome to  ${siteInfo.name}.  These Terms and Conditions outline the rules and regulations for the use of our website, located at `} <Link target="_blank" href={siteInfo.liveURL} className={`${selected === "makeup" ? "text-mBtnBg" : "text-sBtnBg"} underline`}>{siteInfo.name}</Link>. By accessing or using our site, you agree to be bound by these terms. If you do not agree to all the terms, please refrain from using our website. </p>
 
       <div className="mt-6">
         {

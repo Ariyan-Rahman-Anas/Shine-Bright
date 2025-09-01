@@ -5,13 +5,10 @@ export interface AuthState {
   user: {
     id: string;
     email: string;
+    firstName: string;
+    lastName: string;
+    countryCode: string;
     phone: string;
-    country_code: string;
-    first_name: string;
-    last_name: string;
-    user_role: string;
-    user_type: string;
-    user_status: string;
   } | null;
 }
 

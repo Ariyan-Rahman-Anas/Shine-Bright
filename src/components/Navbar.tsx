@@ -26,7 +26,6 @@ import MakeupAccordion from "./CategoryAccordions/MakeupAccordion"
 import MoreProductsAccordion from "./CategoryAccordions/MoreProductsAccordion"
 import { loggedInUser } from "@/redux/features/authSlice"
 import { useLogoutHandler } from "@/hooks/useLogoutHandler"
-import { useGetCustomerByIdQuery } from "@/redux/api/authApi"
 
 const Navbar = () => {
   const { selected } = useSelector((state: any) => state.category)
@@ -47,10 +46,7 @@ const Navbar = () => {
   };
 
   const loggedInUserSelector = useSelector(loggedInUser)
-  const { id, email, country_code, phone, first_name, last_name } = loggedInUserSelector || {}
-  const { data: customerData } = useGetCustomerByIdQuery(id)
-  const userPrimaryAddress = customerData?.data?.userProfile?.find((item: any) => item.is_primary == true)
-  const { address, area, thana, city, country, postal_code, zone } = userPrimaryAddress || {}
+  const { email, countryCode, phone, firstName, lastName } = loggedInUserSelector || {}
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -83,7 +79,7 @@ const Navbar = () => {
     };
   }, [mobileMenuOpen]);
 
-  const { handleLogout } = useLogoutHandler({
+  const handleLogout = useLogoutHandler({
     onComplete: () => setOpen(false),
   })
 
@@ -185,20 +181,18 @@ const Navbar = () => {
                       <SecondaryButton title="Change Picture" className='px-4 py-2 md:hidden text-base' />
                     </div>
                     <div className='text-bColor4 w-full min-wfull '>
-                      <h1 className={` text-lg font-semibold ${selected === "makeup" ? "text-mColor17" : "text-sColorBase3"}`} >{first_name} {last_name}</h1>
-                      <p>{email ?? `${country_code}${phone}`} </p>
+                      <h1 className={` text-lg font-semibold ${selected === "makeup" ? "text-mColor17" : "text-sColorBase3"}`} >{firstName} {lastName}</h1>
+                      <p>{`${email} ${countryCode}${phone}`} </p>
                       <p className='text-bColor5 font-semibold mt-2 '>Address:</p>
                       <div className="flex gap-2">
-                        {address ? (
                           <>
-                            <p>{area} - {postal_code}</p>
-                            <p>{address}</p>
-                            <p>{zone}</p>
-                            <p>{city}</p>
-                            <p>{thana}</p>
-                            <p>{country}</p>
+                            <p>{"area"} - {"postal_code"}</p>
+                            <p>{"address"}</p>
+                            <p>{'zone'}</p>
+                            <p>{"city"}</p>
+                            <p>{"thana"}</p>
+                            <p>{"country"}</p>
                           </>
-                        ) : ""}
                       </div>
                       <div className="flex items-center gap-4 mt-4 ">
                         <div onClick={() => setOpen(false)} className="w-full" >

@@ -1,6 +1,6 @@
 "use client"
 
-import { contactInfo, privacyPolicy, siteName, siteURL } from "@/constant"
+import { contactInfo, privacyPolicy, siteInfo } from "@/constant"
 import Link from "next/link"
 import { useSelector } from "react-redux"
 
@@ -10,8 +10,8 @@ const PrivacyPolicy = () => {
 
   return (
     <div className="text-sm text-bColor4">
-      <h1 className="sub-heading" >{`${siteName}'s Privacy Policy`} </h1>
-      <p className="mt-2" >{`This Privacy Policy describes how ${siteName} (we, us, or our) collects, uses, shares, and protects the information obtained from users (you or your) of our e-commerce website `} <Link target="_blank" href={siteURL} className={`${selected === "makeup" ? "text-mBtnBg" : "text-sBtnBg"} underline`}>{siteName}</Link> </p>
+      <h1 className="sub-heading" >{`${siteInfo.name}'s Privacy Policy`} </h1>
+      <p className="mt-2" >{`This Privacy Policy describes how ${siteInfo.name} (we, us, or our) collects, uses, shares, and protects the information obtained from users (you or your) of our e-commerce website `} <Link target="_blank" href={siteInfo.liveURL} className={`${selected === "makeup" ? "text-mBtnBg" : "text-sBtnBg"} underline`}>{siteInfo.name}</Link> </p>
 
       <div className="mt-6">
         {

@@ -1,10 +1,10 @@
-import { refundPolicy, siteName } from "@/constant"
+import { refundPolicy, siteInfo } from "@/constant"
 
 const RefundPolicy = () => {
 
   return (
     <div className="text-sm text-bColor4">
-      <h1 className="sub-heading" >{`${siteName}'s Refund Policy`} </h1>
+      <h1 className="sub-heading" >{`${siteInfo.name}'s Refund Policy`} </h1>
 
       <p className="mt-2" >Thank you for shopping at Shine Bright! We appreciate your business and want to ensure you’re happy with your purchase. Please read the following refund policy carefully.</p>
 

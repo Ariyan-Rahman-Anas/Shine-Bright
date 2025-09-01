@@ -6,14 +6,21 @@ export const siteInfo = {
   email: "info@shine-bright.com",
   userEmail: "user@shine-bright.com",
   password: "SB@Acc#123",
-  number:  "+880 1610-195968"
+  number: "+880 1610-195968",
+  liveURL : "https://shine-bright.vercel.app"
 }
 
-export const siteName = "Shine Bright"
-export const siteEmail = "info@shine-bright.com"
-export const sitePassword = "SB@Acc#123"
+export const userInfo = {
+  id: "UUID-SB-acc-Id-#1",
+  firstName: "Shine",
+  lastName: "Bright",
+  email: "me@shine-bright.com",
+  password: "SB@Acc#123",
+  countryCode: "+880",
+  number:  "1610-195968"
+}
+
 export const siteNumber = "+880 1610-195968"
-export const siteURL = "https://shine-bright.vercel.app"
 
 export const domPurifyAllowedTags = [
   'p', 'strong', 'span', 'em', 'b', 'i', 'br', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'a', 'img', 'table', 'thead', 'tbody', 'tr', 'td', 'th'
@@ -179,19 +186,19 @@ export const teamMembers = [
     img: images.T3,
     designation: "CEO & Founder",
     name: "Shaila Tabassum",
-    details: `{the visionary leader Who has been the driving force behind ${siteName}'s extraordinary achievement. With 7 years of experience in the beauty industry , Shirin has a proven track record of advising appropriate products according to consumer’s concern. Under her leadership, ${siteName} has become popular in Bangladesh and favorite to beauty enthusiasts . She has launched ${siteName}'’s own glitter and highlighter.}`
+    details: `{the visionary leader Who has been the driving force behind ${siteInfo.name}'s extraordinary achievement. With 7 years of experience in the beauty industry , Shirin has a proven track record of advising appropriate products according to consumer’s concern. Under her leadership, ${siteInfo.name} has become popular in Bangladesh and favorite to beauty enthusiasts . She has launched ${siteInfo.name}'’s own glitter and highlighter.}`
   },
   {
     img: images.T2,
     designation: "COO & Co-Founder",
     name: "Tanjin Esha",
-    details: `{the dynamic leader who have led ${siteName} to remarkable success. He had the original vision for this company, and his unwavering passion has been instrumental in its growth. Meanwhile, he has brought exceptional operational expertise and strategic thinking to the table, ensuring that our vision becomes a reality. He have created a powerful synergy that has propelled ${siteName} to the forefront of the beauty industry.}`
+    details: `{the dynamic leader who have led ${siteInfo.name} to remarkable success. He had the original vision for this company, and his unwavering passion has been instrumental in its growth. Meanwhile, he has brought exceptional operational expertise and strategic thinking to the table, ensuring that our vision becomes a reality. He have created a powerful synergy that has propelled ${siteInfo.name} to the forefront of the beauty industry.}`
   },
   {
     img: images.T1,
     designation: "CPO & Co-Founder",
     name: "M.A. Atique",
-    details: `{With a distinguished career spanning 4 years, He brings a wealth of experience and expertise to ${siteName}. He helps in developing and implementing the company's long-term strategy, setting goals, and making key decisions. Under his leadership, we're confident that ${siteName} will continue to thrive and innovate.}`
+    details: `{With a distinguished career spanning 4 years, He brings a wealth of experience and expertise to ${siteInfo.name}. He helps in developing and implementing the company's long-term strategy, setting goals, and making key decisions. Under his leadership, we're confident that ${siteInfo.name} will continue to thrive and innovate.}`
   }
 ]
 

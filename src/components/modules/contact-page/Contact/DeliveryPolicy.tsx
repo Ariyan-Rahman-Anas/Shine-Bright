@@ -1,12 +1,12 @@
-import { deliveryPolicy, siteName } from "@/constant"
+import { deliveryPolicy, siteInfo } from "@/constant"
 
 const DeliveryPolicy = () => {
 
 
   return (
     <div className="text-sm text-bColor4">
-      <h1 className="sub-heading" >{`${siteName}'s Delivery Policy`} </h1>
-      <p className="mt-2" >{`Thank you for choosing ${siteName} as your trusted online product or service provider. This Delivery Policy outlines the terms and conditions regarding the delivery of products and services purchased through our platform. By placing an order with us, you agree to comply with and be bound by the following policies:`}</p>
+      <h1 className="sub-heading" >{`${siteInfo.name}'s Delivery Policy`} </h1>
+      <p className="mt-2" >{`Thank you for choosing ${siteInfo.name} as your trusted online product or service provider. This Delivery Policy outlines the terms and conditions regarding the delivery of products and services purchased through our platform. By placing an order with us, you agree to comply with and be bound by the following policies:`}</p>
 
       <div className="mt-6">
         {

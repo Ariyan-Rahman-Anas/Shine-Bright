@@ -4,15 +4,25 @@ import PasswordInputField from "@/components/shared/PasswordInputField"
 import SearchableDropdown from "@/components/shared/SearchableDropdown"
 import SecondaryButton from "@/components/shared/SecondaryButton"
 import SocialLogin from "@/components/shared/SocialLogin"
-import { useUserRegistrationMutation } from "@/redux/api/authApi"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
-import { useApiResponseEffects } from "@/hooks/useApiResponseEffects"
 import { countryCodes } from "@/constant"
-
+import { toast } from "sonner"
+import { useRouter } from "next/navigation"
 
 const RegistrationForm = () => {
+    const router = useRouter()
+    const [loading, setLoading] = useState(false)
+    const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null)
     const [selectedCountryCode, setSelectedCountryCode] = useState<string>("");
+
+    useEffect(() => {
+        return () => {
+            if (timeoutId) {
+                clearTimeout(timeoutId)
+            }
+        }
+    }, [timeoutId])
 
     const {
         register,
@@ -22,30 +32,17 @@ const RegistrationForm = () => {
         formState: { errors, isSubmitting },
     } = useForm();
 
-    const [userRegistration, {
-        data: userRegisterData,
-        isLoading: isRegistering,
-        error: registerError,
-        isSuccess,
-        isError
-    }] = useUserRegistrationMutation();
+    const onSubmit = async () => {
+        setLoading(true)
+        const loadingTimer = setTimeout(() => {
+            toast.success("Registration Successful!")
+            router.replace("/login")
+            setLoading(false)
+            setTimeoutId(null)
+        }, 2000);
 
-    const onSubmit = async (data: any) => {
-        const payload = {
-            ...data,
-            country_code: selectedCountryCode,
-            confirm_password: undefined
-        };
-        await userRegistration(payload);
+        setTimeoutId(loadingTimer);
     };
-
-    useApiResponseEffects({
-        isSuccess,
-        isError,
-        errorData: registerError,
-        successData: userRegisterData,
-        redirectTo: "/login"
-    });
 
     return (
         <div className="w-full max-w-lg mx-auto space-y-8">
@@ -88,7 +85,7 @@ const RegistrationForm = () => {
                 {/* Email */}
                 <div className="flex flex-col w-full">
                     <label htmlFor="email" className="text-sm font-medium text-gray-700">
-                        Email <span className="text-red-500 text-lg">*</span>
+                        Email <span className="text-error text-lg">*</span>
                     </label>
                     <input
                         type="email"
@@ -117,9 +114,9 @@ const RegistrationForm = () => {
                             required={true}
                             maxHeight="250px"
                             isSearchable={true}
-                            className={`w-28 border h-full md:w-32 ${errors.country_code ? 'border-red-500' : ''}`}
+                            className={`w-28 border h-full md:w-32`}
                         />
-                   </div>
+                    </div>
 
                     <div className="flex flex-col w-full">
                         <label htmlFor="phone" className="text-sm font-medium text-gray-700">
@@ -159,25 +156,21 @@ const RegistrationForm = () => {
                     name="confirm_password"
                 />
 
-                {/* i need to watch the password here, that password and confirm password should be same */}
                 {watch("password") !== watch("confirm_password") && (
-                    <p className="text-red-500 text-sm mt-1">
-                        Passwords do not match
+                    <p className="text-error text-sm mt-1">
+                        Passwords does not matched!
                     </p>
                 )}
 
-                {/* Submit Button */}
                 <SecondaryButton
                     bType="submit"
-                    title={isRegistering || isSubmitting ? "Creating Account..." : "Sign Up"}
+                    title={loading || isSubmitting ? "Creating Account..." : "Sign Up"}
                     className="w-full md:w-[80%] text-base font-medium uppercase py-2"
-                    disabled={isRegistering || isSubmitting}
+                    disabled={watch("password") !== watch("confirm_password") || loading || isSubmitting}
                 />
             </form>
-
             <SocialLogin />
         </div>
     );
 };
-
 export default RegistrationForm;

@@ -7,7 +7,7 @@ const useManageCart = () => {
     const dispatch = useDispatch()
     const cartItemsAll = useSelector(cartItems)
 
-    const addToCartHandler = (item: CartItem) => {
+    const addToCartHandler = (item: any) => {
         dispatch(addToCart(item))
         toast.success("Added to cart")
     }

@@ -96,6 +96,13 @@ import outlet5 from "./../../public/images/outlets/5.jpg";
 import outlet6 from "./../../public/images/outlets/6.jpg";
 import outlet7 from "./../../public/images/outlets/7.jpg";
 
+import pi1 from "./../../public/images/products/1/1.jpg"
+import pi2 from "./../../public/images/products/1/2.jpg"
+import pi3 from "./../../public/images/products/1/3.jpg"
+import pi4 from "./../../public/images/products/1/4.jpg"
+import pi5 from "./../../public/images/products/1/5.png"
+import pi6 from "./../../public/images/products/1/6.jpg"
+
 
 
 export const icons = {
@@ -157,6 +164,8 @@ export const icons = {
 }
 
 export const images = {
+    product1: {pi1, pi2, pi3, pi4, pi5, pi6},
+
     aboutNumberBg,
     AP1,
     AP2,

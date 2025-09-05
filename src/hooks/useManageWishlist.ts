@@ -17,7 +17,7 @@ const useManageWishlist = () => {
         toast.success("Removed from wishlist")
     }
     
-    const toggleWishlist = (item: CartItem) => {
+    const toggleWishlist = (item: any) => {
         const isItemInWishlist = wishlistItemsAll.some((wishlistItem: CartItem) => wishlistItem.id === item.id)
         if (isItemInWishlist) {
             removeFromWishlistHandler(item)

@@ -44,8 +44,8 @@ const ContactPageSidebar = () => {
                             key={item.href}
                             href={item.href}
                             className={`flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-colors uppercase ${isActive && selected === "makeup"
-                                ? 'bg-mColor1 border-r-2 border-mColor1 text-blackCustom'
-                                : isActive && selected === "skincare" ? 'bg-sColor1 border-r-2 border-sColor1 text-blackCustom ' : 'text-bColor3'
+                                ? 'bg-mBtnBg/30 border-r-2 border-mColor1 text-blackCustom'
+                                : isActive && selected === "skincare" ? 'bg-sBtnBg/30 border-r-2 border-sColor1 text-blackCustom ' : 'text-bColor3'
                                 }`}
                         >
                             <span className="flex-1">{item.title}</span>

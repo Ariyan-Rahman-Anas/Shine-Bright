@@ -15,7 +15,7 @@ const Card = ({ product, isBtn = true, isColorPicker = true }: { product: any, i
     const wishlistItemsAll = useSelector(wishlistItems)
     const { selected } = useSelector((state: any) => state.category)
 
-    const { id, title, tags, pricing_groups, attributes, productCategories } = product || {}
+    const { id, slug, title, tags, pricing_groups, attributes, productCategories } = product || {}
     // Flatten all photos from all attributes and find the thumbnail
     const allPhotos = attributes?.flatMap((attr: any) => attr.photos || []) || []
     const thumbnailPhoto = allPhotos.find((photo: any) => photo?.is_thumbnail === true || photo?.is_primary === true)
@@ -96,8 +96,8 @@ const Card = ({ product, isBtn = true, isColorPicker = true }: { product: any, i
                                     <p className="hidden md:block font-semibold my-2 cursor-not-allowed ">{title?.slice(0, 65)} </p>
                                 </>
                                 : <>
-                                    <Link href={`/products/${id}`} className="block md:hidden font-semibold my-2">{title?.slice(0, 40)} </Link>
-                                    <Link href={`/products/${id}`} className="hidden md:block font-semibold my-2">{title?.slice(0, 65)} </Link>
+                                    <Link href={`/products/${slug}`} className="block md:hidden font-semibold my-2">{title?.slice(0, 40)} </Link>
+                                    <Link href={`/products/${slug}`} className="hidden md:block font-semibold my-2">{title?.slice(0, 65)} </Link>
                                 </>
                         }
                     </div>
@@ -132,7 +132,7 @@ const Card = ({ product, isBtn = true, isColorPicker = true }: { product: any, i
                             ) : (
                                 <PrimaryButton
                                     title="Add to Cart"
-                                    to={`/products/${id}`}
+                                    to={`/products/${slug}`}
                                     className={`py-2 w-full font-semibold uppercase`}
                                     disabled={checkingAvailability}
                                 />

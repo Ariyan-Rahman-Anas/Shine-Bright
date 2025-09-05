@@ -18,7 +18,7 @@ const TableHeader = <T,>({ columns }: TableHeaderProps<T>) => {
   const { selected } = useSelector((state: any) => state.category)
 
   return (
-    <thead className={`${selected === "makeup" ? "bg-mColor1" : "bg-sColor1"}`}>
+    <thead className={`${selected === "makeup" ? "bg-mBtnBg/20" : "bg-sBtnBg/20"}`}>
       <tr>
         {columns.map((column) => (
           <th

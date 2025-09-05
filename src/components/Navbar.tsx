@@ -58,7 +58,6 @@ const Navbar = () => {
         closeMobileMenu();
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside as any);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside as any);
@@ -125,7 +124,7 @@ const Navbar = () => {
                     }`}>
                     <div className='flex items-center justify-start gap-4 w-fit p-1 '>
                       <div onClick={() => setOpen(false)}>
-                        <PrimaryButton to="/user/profile" title="Dashboard" className={`px-6 py-1.5`} />
+                        <PrimaryButton to="/profile" title="Dashboard" className={`px-6 py-1.5`} />
                       </div>
                       <SecondaryButton title="Logout"
                         onClick={handleLogout}
@@ -196,7 +195,7 @@ const Navbar = () => {
                       </div>
                       <div className="flex items-center gap-4 mt-4 ">
                         <div onClick={() => setOpen(false)} className="w-full" >
-                          <PrimaryButton to="/user/profile" title="Dashboard" className="w-full py-2 my-2" />
+                          <PrimaryButton to="/profile" title="Dashboard" className="w-full py-2 my-2" />
                         </div>
                         <SecondaryButton
                           onClick={handleLogout}

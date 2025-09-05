@@ -10,23 +10,23 @@ import Image from 'next/image'
 import { images } from '@/assets'
 import { loggedInUser } from '@/redux/features/authSlice'
 import { useLogoutHandler } from '@/hooks/useLogoutHandler'
-import { useGetCustomerByIdQuery } from '@/redux/api/authApi'
+import { useRouter } from 'next/navigation'
 
 interface UserLayoutProps {
   children: ReactNode
 }
 
 const UserLayout = ({ children }: UserLayoutProps) => {
+  const router = useRouter()
   const { selected } = useSelector((state: any) => state.category)
   const loggedInUserSelector = useSelector(loggedInUser)
 
-  const {id, email, country_code, phone, first_name, last_name} = loggedInUserSelector || {}
-  const {data: customerData} = useGetCustomerByIdQuery(id)
-  const userPrimaryAddress = customerData?.data?.userProfile?.find((item: any) => item.is_primary == true)
-  const {address, area, thana, city, country, postal_code, zone} = userPrimaryAddress || {}
+  const { email, countryCode, phone, firstName, lastName } = loggedInUserSelector || {}
+  if (!email) {
+    router.replace("/login")
+  }
 
-
-    const { handleLogout } = useLogoutHandler()
+  const handleLogout = useLogoutHandler()
 
   return (
     <div className="page-setup mb-14 ">
@@ -44,20 +44,13 @@ const UserLayout = ({ children }: UserLayoutProps) => {
             <SecondaryButton title="Change Picture" className='px-4 py-2 md:hidden text-base' />
           </div>
           <div className='text-bColor4 w-full min-wfull '>
-            <h1 className={` text-lg font-semibold ${selected === "makeup" ? "text-mBtnBg" : "text-sBtnBg"}`} >{first_name} {last_name}</h1>
-            <p>{email  ?? `${country_code}${phone}`}</p>
+            <h1 className={` text-lg font-semibold ${selected === "makeup" ? "text-mBtnBg" : "text-sBtnBg"}`} >{firstName} {lastName}</h1>
+            <p>{email ?? `${countryCode}${phone}`}</p>
             <p className='text-bColor5 font-semibold mt-2 '>Address:</p>
             <div className="flex gap-2">
-              {address ? (
-                <>
-                  <p>{area} - {postal_code}</p>
-                  <p>{address}</p>
-                  <p>{zone}</p>
-                  <p>{city}</p>
-                  <p>{thana}</p>
-                  <p>{country}</p>
-                </>
-              ) : ""}
+              <p>Road 1,</p>
+              <p>Zakir Hossain Raod, Khulshi - 4225,</p>
+              <p>Chattogram, Bangladesh</p>
             </div>
             <SecondaryButton title="Logout" style={{
               background: "transparent",

@@ -6,7 +6,7 @@ import { useSelector } from "react-redux"
 
 const UserAddresses = () => {
     const loggedInUserSelector = useSelector(loggedInUser)
-    const { id, first_name } = loggedInUserSelector || {}
+    const { id, firstName } = loggedInUserSelector || {}
     const { data: customerData } = useGetCustomerByIdQuery(id)
 
     return (
@@ -19,7 +19,7 @@ const UserAddresses = () => {
                             <PrimaryButton title="Edit" className="" icon={<RiEditBoxLine />} />
                         </div>
                     </div>
-                    <p className="my-2">Address {idx + 1} ({first_name})</p>
+                    <p className="my-2">Address {idx + 1} ({firstName})</p>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
                         <div>
                             <h1 className="text-bColor3">Country</h1>

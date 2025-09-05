@@ -1,15 +1,12 @@
 "use client"
 
 import { setCategory } from "@/redux/features/categorySlice"
-import { useRouter } from "next/navigation"
 import { useDispatch, useSelector } from "react-redux"
 
 const FloatingThemeBtn = () => {
-    const router = useRouter()
     const { selected } = useSelector((state: any) => state.category)
     const dispatch = useDispatch()
     const setSelected = (value: string) => {
-        router.replace("/")
         dispatch(setCategory(value))
     }
     return (<div className="flex justify-center items-center mt-4 ">

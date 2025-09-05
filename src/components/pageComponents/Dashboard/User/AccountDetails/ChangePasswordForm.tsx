@@ -1,8 +1,6 @@
 "use client"
 
 import SecondaryButton from "@/components/shared/SecondaryButton";
-import { useChangePasswordMutation } from "@/redux/api/authApi";
-import { useApiResponseEffects } from "@/hooks/useApiResponseEffects";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import PasswordInputField from "@/components/shared/PasswordInputField";
@@ -26,32 +24,20 @@ const ChangePasswordForm = () => {
         formState: { errors },
     } = useForm<PasswordChangeFormData>();
 
-    const { handleLogout } = useLogoutHandler({
+    const handleLogout = useLogoutHandler({
         // onComplete: () => setOpen(false),
     })
-    const [changePassword, { data, isLoading, isSuccess, isError, error }] = useChangePasswordMutation();
 
     const onSubmit = async (data: PasswordChangeFormData) => {
         if (data?.new_password?.length < 5) {
-            toast.error("New Password should be at least 5 characters long")
+            toast.error("New Password must be at least 5 characters long")
             return
         }
-        await changePassword({
-            old_password: data.old_password,
-            new_password: data.new_password,
-        }).unwrap();
         reset();
         handleLogout()
         router.replace("/login")
-        // window.location.reload()
     };
 
-    useApiResponseEffects({
-        isSuccess,
-        isError,
-        errorData: error,
-        successData: data,
-    });
 
     return (
         <div>
@@ -112,7 +98,6 @@ const ChangePasswordForm = () => {
                         bType="submit"
                         title="Save New Password"
                         className="w-full md:w-fit text-base font-medium px-5 py-2"
-                        disabled={isLoading}
                     />
                     <Link
                         href="/"

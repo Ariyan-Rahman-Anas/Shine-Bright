@@ -16,7 +16,7 @@ const UserProfilePage = () => {
 
 
   return (
-    <div className={`md:p-4 rounded-md md:border-2 w-full ${selected === "makeup" ? "border-mColor3" : "border-sColorBase2"}`}>
+    <div className={`md:p-4 rounded-md md:border-2 w-full ${selected === "makeup" ? "border-mBtnBg/30" : "border-sBtnBg/30"}`}>
       <div className="flex md:flex-row flex-col items-center justify-between md:gap-8 gap-4 text-sm mt-6 md:mt-0 ">
         <div id="frame-1" className="relative" >
           <div>

@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "
 
 
 const OrderDetailsModal = ({ data }: { data: any }) => {
-    const { id, address, order_amount, order_date, order_id, invoice_id, total_order_qty, current_status, payment_status } = data || {}
+    const { id, address, amount, orderDate, orderId, invoiceId, numberOfProducts, orderStatus, paymentStatus } = data || {}
 
     const { selected } = useSelector((state: any) => state.category)
     
@@ -28,45 +28,45 @@ const OrderDetailsModal = ({ data }: { data: any }) => {
                         <div className="flex items-center gap-1">
                             <strong>Order Status: </strong>
                             {
-                                current_status === "Delivered" ? (
-                                    <span className="badge badge-green">{current_status}</span>
-                                ) : current_status === "Processing" ? (
-                                    <span className="badge badge-yellow">{current_status}</span>
-                                ) : current_status === "Shipped" ? (
-                                    <span className="badge badge-blue">{current_status}</span>
-                                ) : current_status === "ORDERED" ? (
-                                    <span className="badge badge-green">{current_status}</span>
-                                ) : current_status === "Cancelled" && (
-                                    <span className="badge badge-red">{current_status}</span>
+                                orderStatus === "Delivered" ? (
+                                    <span className="badge badge-green">{orderStatus}</span>
+                                ) : orderStatus === "Processing" ? (
+                                    <span className="badge badge-yellow">{orderStatus}</span>
+                                ) : orderStatus === "Shipped" ? (
+                                    <span className="badge badge-blue">{orderStatus}</span>
+                                ) : orderStatus === "ORDERED" ? (
+                                    <span className="badge badge-green">{orderStatus}</span>
+                                ) : orderStatus === "Cancelled" && (
+                                    <span className="badge badge-red">{orderStatus}</span>
                                 )
                             }
                         </div>
                         <div className="flex items-center gap-1">
                             <strong>Invoice No: </strong>
-                            <p>{invoice_id}</p>
+                            <p>{invoiceId}</p>
                         </div>
                     </div>
 
                     <div className="flex items-start flex-wrap justify-between gap-x-8 gap-y-4 text-left my-5 ">
                         <div>
                             <strong>Order Id</strong>
-                            <p>{order_id}</p>
+                            <p>{orderId}</p>
                         </div>
                         <div>
                             <strong>Order Date</strong>
-                            <p>{order_date}</p>
+                            <p>{orderDate}</p>
                         </div>
                         <div>
                             <strong>Amount</strong>
-                            <p>{order_amount}</p>
+                            <p>{amount}</p>
                         </div>
                         <div>
                             <strong>Number of Products</strong>
-                            <p>{total_order_qty}</p>
+                            <p>{numberOfProducts}</p>
                         </div>
                         <div>
                             <strong>Payment Status</strong>
-                            <p>{payment_status}</p>
+                            <p>{paymentStatus}</p>
                         </div>
                     </div>
 
@@ -77,26 +77,26 @@ const OrderDetailsModal = ({ data }: { data: any }) => {
                     </div>
 
                     {
-                        current_status === "Delivered" ? (
+                        orderStatus === "Delivered" ? (
                             <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-3">
                                 <PrimaryButton title="Drop a Review" to="/review" className={`w-full md:w-fit py-1.5 px-6 ${selected === "makeup" ? "bg-mColor2 text-blackCustom " : "bg-sColor6 text-whiteCustom"}`} />
                                 <PrimaryButton title="Return Request" to="/return" className={`w-full md:w-fit py-1.5 px-6 ${selected === "makeup" ? "bg-mColor3/80 text-blackCustom " : "bg-sColor6 text-whiteCustom "}`} />
                                 <PrimaryButton title="View Products" to="/products-list" className={`w-full md:w-fit py-1.5 px-6 border-bColor2 border `} />
                             </div>
-                        ) : current_status === "Processing" ? (
+                        ) : orderStatus === "Processing" ? (
                             <div className="flex items-center justify-start gap-3">
                                 <OrderCancelModal />
                                 <PrimaryButton title="View Products" to={`/ordered-products-list/${id}`} className={` py-1.5 px-6 border-bColor2 border `} />
                             </div>
-                        ) : current_status === "Shipped" ? (
+                        ) : orderStatus === "Shipped" ? (
                             <div className="flex items-center justify-start gap-3">
                                 <PrimaryButton title="View Products" to={`/ordered-products-list/${id}`} className={` py-1.5 px-6 border-bColor2 border `} />
                             </div>
-                        ) : current_status === "Cancelled" ? (
+                        ) : orderStatus === "Cancelled" ? (
                             <div className="flex items-center justify-start gap-3">
                                 <PrimaryButton title="View Products" to={`/ordered-products-list/${id}`} className={` py-1.5 px-6 border-bColor2 border `} />
                             </div>
-                        ) : current_status === "ORDERED" && (
+                        ) : orderStatus === "ORDERED" && (
                             <div className="flex items-center justify-start gap-3 w-fit ">
                                 <PrimaryButton title="View Products" to={`/ordered-products-list/${id}`} className={` py-1.5 px-6 border-bColor2 border `} />
                             </div>

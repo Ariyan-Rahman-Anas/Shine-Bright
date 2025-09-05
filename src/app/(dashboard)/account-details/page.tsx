@@ -1,5 +1,5 @@
+import AccountDetailsForm from '@/components/pageComponents/Dashboard/User/AccountDetails/AccountDetailsForm'
 import React from 'react'
-import AccountDetailsForm from '../../../../components/pageComponents/Dashboard/User/AccountDetails/AccountDetailsForm'
 
 const UserAccountDetailsPage = () => {
   return (

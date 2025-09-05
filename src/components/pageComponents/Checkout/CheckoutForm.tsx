@@ -6,7 +6,7 @@ interface UserContact {
     // thana: string | number;
     city: string | number;
     // country: string | number;
-    country_code: string;
+    countryCode: string;
     is_primary: boolean;
     // area?: string;
     // zone?: string;
@@ -14,12 +14,12 @@ interface UserContact {
 }
 
 interface CustomerPayload {
-    first_name: string;
-    country_code: string;
+    firstName: string;
+    countryCode: string;
     phone: string;
     password: string;
     user_contacts: UserContact[];
-    last_name?: string;
+    lastName?: string;
     email?: string;
 }
 
@@ -51,13 +51,13 @@ const CheckoutForm = () => {
     const dispatch = useDispatch()
     const { selected } = useSelector((state: any) => state.category)
     const loggedInUserSelector = useSelector(loggedInUser)
-    const { id, first_name, last_name, phone, email, country_code } = loggedInUserSelector || {}
-    const {data: customerData} = useGetCustomerByIdQuery(id)
+    const { id, firstName, lastName, phone, email, countryCode } = loggedInUserSelector || {}
+    const { data: customerData } = useGetCustomerByIdQuery(id)
     const userPrimaryAddress = customerData?.data?.userProfile?.find((item: any) => item.is_primary == true)
     // const {address, area, thana:loggedInUserThana, city:loggedInUserCity, country:loggedInUserCountry, postal_code, zone} = userPrimaryAddress || {}
-    const {address, city:loggedInUserCity} = userPrimaryAddress || {}
+    const { address, city: loggedInUserCity } = userPrimaryAddress || {}
 
-    
+
     console.log("loggedInUserSelector", customerData)
     console.log("address", address)
 
@@ -69,7 +69,7 @@ const CheckoutForm = () => {
         mode: 'onChange',
         defaultValues: {
             is_primary: true,
-            country_code: country_code ? country_code : "+880",
+            countryCode: countryCode ? countryCode : "+880",
             address_type: "HOME",
             // country: loggedInUserCountry ? loggedInUserCountry : "Bangladesh",
             address: address ? address : "",
@@ -80,7 +80,7 @@ const CheckoutForm = () => {
             // area: area ? area : "",
         }
     })
-    
+
 
     const [city, setCity] = useState<string | number>("");
     // const [thana, setThana] = useState<string | number>("");
@@ -109,11 +109,11 @@ const CheckoutForm = () => {
 
     // customer create API
     const [createCustomer, { data: customerCreatedData, isLoading: isCreating, isSuccess: isCreated, isError: isCreatingError, error: customerCreateError }] = useCreateCustomerMutation()
-    
+
 
     const onSubmit = async (data: any) => {
         // Validate required fields
-        if (!data.first_name?.trim()) {
+        if (!data.firstName?.trim()) {
             toast.error("Please enter first name");
             return;
         }
@@ -145,49 +145,49 @@ const CheckoutForm = () => {
         //     toast.error("Please select thana");
         //     return;
         // }
-    
+
         // Base payload with required fields - create with proper typing
         const baseContact: UserContact = {
-            address: data.address.trim(), 
-            address_type: addressType, 
+            address: data.address.trim(),
+            address_type: addressType,
             // thana: thana,
             city: city,
             // country: country,
-            country_code: selectedCountryCode,
+            countryCode: selectedCountryCode,
             // is_primary: data.is_primary || false,
             is_primary: primaryAddress,
         };
-    
+
         // Conditionally add optional fields to contact
         // if (data.area && data.area.trim()) {
         //     baseContact.area = data.area.trim();
         // }
-        
+
         // if (data.zone && data.zone.trim()) {
         //     baseContact.zone = data.zone.trim();
         // }
-        
+
         // if (data.postal_code && data.postal_code.toString().trim()) {
         //     baseContact.postal_code = Number(data.postal_code);
         // }
-    
+
         const payload: CustomerPayload = {
-            first_name: data.first_name.trim(),
-            country_code: selectedCountryCode,
+            firstName: data.firstName.trim(),
+            countryCode: selectedCountryCode,
             phone: data.phone.length === 10 ? `0${data.phone}` : data.phone,
             password: data.phone.toString().trim(),
             user_contacts: [baseContact]
         };
-    
+
         // Conditionally add optional fields to main payload
-        if (data.last_name && data.last_name.trim()) {
-            payload.last_name = data.last_name.trim();
+        if (data.lastName && data.lastName.trim()) {
+            payload.lastName = data.lastName.trim();
         }
-        
+
         if (data.email && data.email.trim()) {
             payload.email = data.email.trim();
         }
-    
+
         try {
             const result = await createCustomer(payload).unwrap();
             if (result?.data?.id) {
@@ -291,12 +291,12 @@ const CheckoutForm = () => {
                                 <InputFieldLabel label="First Name" isRequired={true} />
                                 <InputField
                                     type="text"
-                                    id="first_name"
+                                    id="firstName"
                                     placeholder="First Name"
                                     register={register}
-                                    name="first_name"
+                                    name="firstName"
                                     className=""
-                                    value={first_name}
+                                    value={firstName}
                                     isRequired={true}
                                 />
                             </div>
@@ -305,11 +305,11 @@ const CheckoutForm = () => {
                                 <InputFieldLabel label="Last Name" />
                                 <InputField
                                     type="text"
-                                    id="last_name"
+                                    id="lastName"
                                     placeholder="Last Name"
                                     register={register}
-                                    name="last_name"
-                                    value={last_name}
+                                    name="lastName"
+                                    value={lastName}
                                 />
                             </div>
 
@@ -334,7 +334,7 @@ const CheckoutForm = () => {
                                     value={selectedCountryCode}
                                     onChange={(value) => {
                                         setSelectedCountryCode(value as string);
-                                        setValue('country_code', value as string);
+                                        setValue('countryCode', value as string);
                                     }}
                                     placeholder="Code"
                                     searchPlaceholder="Search Country Code"
@@ -512,7 +512,7 @@ const CheckoutForm = () => {
                             ? (
                                 <div className="text-sm text-bColor3">
                                     <p className="text-center font-semibold uppercase " >Place the order and enjoy your items!</p>
-                                    
+
                                     <div className="mb-2">
                                         <p className="font-semibold text-blackCustom">Account Credentials:</p>
                                         <p>Username: {email ?? phone}</p>

@@ -133,6 +133,7 @@ body{
 /*====--- custom scroll bar ---====*/
 ::-webkit-scrollbar {
   width: 0.35rem;
+  height: 0.35rem;
 }
 ::-webkit-scrollbar-track {
   /* background-color: #ffffff; */

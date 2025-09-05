@@ -9,7 +9,7 @@ const UserAddressPage = () => {
 
   return (
     <div
-      className={`w-full md:border-2 rounded-md md:p-4 ${selected === "makeup" ? "border-mColor3" : "border-sColorBase2"}`}
+      className={`w-full md:border-2 rounded-md md:p-4 ${selected === "makeup" ? "border-mBtnBg/30" : "border-sBtnBg/30"}`}
     >
       <AddAddressForm />
       <UserAddresses />

@@ -7,7 +7,7 @@ export const siteInfo = {
   userEmail: "user@shine-bright.com",
   password: "SB@Acc#123",
   number: "+880 1610-195968",
-  liveURL : "https://shine-bright.vercel.app"
+  liveURL: "https://shine-bright.vercel.app"
 }
 
 export const userInfo = {
@@ -16,8 +16,7 @@ export const userInfo = {
   lastName: "Bright",
   email: "me@shine-bright.com",
   password: "SB@Acc#123",
-  countryCode: "+880",
-  number:  "1610-195968"
+  phone: "+880 1610-195968"
 }
 
 export const siteNumber = "+880 1610-195968"
@@ -277,6 +276,143 @@ export const AllProducts = [
     sizes: [10, 20, 25, 50, 100, 250, 500, 750],
     shades: ["#FF0000", "#00FF00", "#0000FF", "#C68B59", "#DBA36B", "#EDBB94", "#F5C3A8", "#F8CFC0", "#F9D2C4", "#FADAD0", "#FFF1DC", "#00FF07", "#0000FF"],
   }
+]
+
+
+export const ordersData = [
+  {
+    orderId: "Order-1001",
+    invoiceId: "Inv-1001",
+    orderDate: "1st Aug - 2025",
+    phone: "+8801712345678",
+    amount: 1500,
+    numberOfProducts: 2,
+    paymentStatus: "Paid",
+    orderStatus: "Delivered",
+    address: "House 12, Road 3, Dhanmondi, Dhaka"
+  },
+  {
+    orderId: "Order-1002",
+    invoiceId: "Inv-1002",
+    orderDate: "3rd Aug - 2025",
+    phone: "+8801912345678",
+    amount: 2450,
+    numberOfProducts: 4,
+    paymentStatus: "Paid",
+    orderStatus: "Shipped",
+    address: "23/A, North Road, Mohammadpur, Dhaka"
+  },
+  {
+    orderId: "Order-1003",
+    invoiceId: "Inv-1003",
+    orderDate: "5th Aug - 2025",
+    phone: "+8801811122233",
+    amount: 980,
+    numberOfProducts: 1,
+    paymentStatus: "Unpaid",
+    orderStatus: "Cancelled",
+    address: "Flat 5B, Green City, Chittagong"
+  },
+  {
+    orderId: "Order-1004",
+    invoiceId: "Inv-1004",
+    orderDate: "8th Aug - 2025",
+    phone: "+8801512345678",
+    amount: 3200,
+    numberOfProducts: 3,
+    paymentStatus: "Pending",
+    orderStatus: "Processing",
+    address: "House 7, Road 9, Uttara, Dhaka"
+  },
+  {
+    orderId: "Order-1005",
+    invoiceId: "Inv-1005",
+    orderDate: "10th Aug - 2025",
+    phone: "+8801719988776",
+    amount: 1750,
+    numberOfProducts: 2,
+    paymentStatus: "Paid",
+    orderStatus: "ORDERED",
+    address: "92, Station Road, Khulna"
+  },
+  {
+    orderId: "Order-1006",
+    invoiceId: "Inv-1006",
+    orderDate: "12th Aug - 2025",
+    phone: "+8801300123456",
+    amount: 2100,
+    numberOfProducts: 5,
+    paymentStatus: "Paid",
+    orderStatus: "Delivered",
+    address: "Plot 16, Block B, Bashundhara, Dhaka"
+  },
+  {
+    orderId: "Order-1007",
+    invoiceId: "Inv-1007",
+    orderDate: "15th Aug - 2025",
+    phone: "+8801600987654",
+    amount: 890,
+    numberOfProducts: 1,
+    paymentStatus: "Pending",
+    orderStatus: "Shipped",
+    address: "Sector 3, Agrabad, Chittagong"
+  },
+  {
+    orderId: "Order-1008",
+    invoiceId: "Inv-1008",
+    orderDate: "18th Aug - 2025",
+    phone: "+8801400123123",
+    amount: 1340,
+    numberOfProducts: 3,
+    paymentStatus: "Unpaid",
+    orderStatus: "Cancelled",
+    address: "Jhawtola, Sylhet"
+  }
+]
+
+
+
+export const returnRefundData = [
+  {
+    returnId: "A001",
+    requestDate: "20th May, 2025",
+    phone: "+8801722222222",
+    amount: "1850 ",
+    address: "23/A, 3rd floor, house no 211/A, Road no 234, Paterbag, jatrabari, Dhaka 1240",
+    status: "Approved",
+  },
+  {
+    returnId: "A002",
+    requestDate: "20th May, 2025",
+    phone: "+8801722222222",
+    amount: "2400 ",
+    address: "23/A, 3rd floor, house no 211/A, Road no 234, Paterbag, jatrabari, Dhaka 1240",
+    status: "Processing",
+  },
+  {
+    returnId: "A003",
+    requestDate: "20th May, 2025",
+    phone: "+8801722222222",
+    amount: "950 ",
+    address: "23/A, 3rd floor, house no 211/A, Road no 234, Paterbag, jatrabari, Dhaka 1240",
+    status: "Rejected",
+  },
+  {
+    returnId: "A004",
+    requestDate: "20th May, 2025",
+    phone: "+8801722222222",
+    amount: "8200 ",
+    address: "23/A, 3rd floor, house no 211/A, Road no 234, Paterbag, jatrabari, Dhaka 1240",
+    status: "Approved",
+  },
+  {
+    returnId: "A005",
+    requestDate: "20th May, 2025",
+    phone: "+8801722222222",
+    amount: "3600 ",
+    address: "23/A, 3rd floor, house no 211/A, Road no 234, Paterbag, jatrabari, Dhaka 1240",
+    status: "Rejected",
+  },
 ]
 
 

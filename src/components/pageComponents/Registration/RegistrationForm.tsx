@@ -55,29 +55,29 @@ const RegistrationForm = () => {
                 <div className="flex flex-col md:flex-row items-center gap-4 w-full">
                     {/* First Name */}
                     <div className="w-full md:w-[60%] flex flex-col">
-                        <label htmlFor="first_name" className="text-sm font-medium text-gray-700">
+                        <label htmlFor="firstName" className="text-sm font-medium text-gray-700">
                             First Name <span className="text-red-500 text-lg">*</span>
                         </label>
                         <input
                             type="text"
-                            id="first_name"
+                            id="firstName"
                             placeholder="Enter First Name"
                             className={`input-field`}
-                            {...register("first_name", { required: true })}
+                            {...register("firstName", { required: true })}
                         />
                     </div>
 
                     {/* Last Name */}
                     <div className="w-full md:w-[40%] flex flex-col">
-                        <label htmlFor="last_name" className="text-sm font-medium text-gray-700">
+                        <label htmlFor="lastName" className="text-sm font-medium text-gray-700">
                             Last Name <span className="text-red-500 text-lg">*</span>
                         </label>
                         <input
                             type="text"
-                            id="last_name"
+                            id="lastName"
                             placeholder="Enter Last Name"
                             className={`input-field`}
-                            {...register("last_name", { required: true })}
+                            {...register("lastName", { required: true })}
                         />
                     </div>
                 </div>
@@ -106,7 +106,7 @@ const RegistrationForm = () => {
                             value={selectedCountryCode}
                             onChange={(value) => {
                                 setSelectedCountryCode(value as string);
-                                setValue('country_code', value);
+                                setValue('countryCode', value);
                             }}
                             placeholder="Code"
                             searchPlaceholder="Search Country Code"

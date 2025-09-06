@@ -6,7 +6,7 @@ import { WithOutPhotoTags, WithPhotoTags } from "@/components/modules/product-de
 import FloatingThemeBtn from "@/components/shared/FloatingThemeBtn"
 import SearchableDropdown from "@/components/shared/SearchableDropdown"
 import SecondaryButton from "@/components/shared/SecondaryButton"
-import { SBProductsData } from "@/constant/pro"
+import { SBProductsData } from "@/constant"
 import useManageCart from "@/hooks/useManageCart"
 import useManageWishlist from "@/hooks/useManageWishlist"
 import { wishlistItems } from "@/redux/features/wishlistSlice"

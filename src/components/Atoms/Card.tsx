@@ -1,4 +1,5 @@
 "use client"
+
 import Image from "next/image"
 import ColorPicker from "./ColorPicker"
 import { useSelector } from "react-redux"
@@ -18,7 +19,7 @@ const Card = ({ product, isBtn = true, isColorPicker = true }: { product: any, i
     const { id, slug, title, tags, pricing_groups, attributes, productCategories } = product || {}
     // Flatten all photos from all attributes and find the thumbnail
     const allPhotos = attributes?.flatMap((attr: any) => attr.photos || []) || []
-    const thumbnailPhoto = allPhotos.find((photo: any) => photo?.is_thumbnail === true || photo?.is_primary === true)
+    const thumbnailPhoto = allPhotos.find((photo: any) => photo?.is_thumbnail === true)
     const colorAttributes = attributes?.filter((item: any) => item?.attribute_type === "COLOR")
     const sizeAttributes = attributes?.filter((item: any) => item?.attribute_type === "SIZE")
     const allShades = colorAttributes?.filter((item: any) => item?.title !== "No Shade")?.map((item: any) => item?.description)
@@ -47,9 +48,7 @@ const Card = ({ product, isBtn = true, isColorPicker = true }: { product: any, i
                 <div id="product photo" className="relative max-h-72 overflow-hidden">
                     <div className="h-full w-full max-h-72 md:h-72 overflow-hidden">
                         <Image
-                            src={thumbnailPhoto?.photoURL
-                                ? thumbnailPhoto?.photoURL
-                                : allPhotos?.find((photo: any) => photo?.photoURL !== "") ? allPhotos?.find((photo: any) => photo?.photoURL !== "")?.photoURL : "https://placehold.co/368x366"}
+                            src={thumbnailPhoto?.photoURL ?? "https://placehold.co/368x366"}
                             alt="Product's Thumbnail (thumbnail or primary photo not found) "
                             className="w-full h-full object-cover rounded"
                             loading="lazy"
@@ -111,7 +110,6 @@ const Card = ({ product, isBtn = true, isColorPicker = true }: { product: any, i
 
                         <div className="flex items-end my-2">
                             <p className={`${selected === "makeup" ? "text-mBtnBg" : "text-sBtnBg"} text-sm font-semibold `}>
-                                {/* TK {is_infinite === true || is_infinite === false && discount_price > 0 */}
                                 TK {discount_price > 0
                                     ? discount_price
                                     : regular_price}

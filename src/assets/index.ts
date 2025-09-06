@@ -17,6 +17,7 @@ import ContactBg from "./../../public/images/contact-page-bg.svg"
 import C1 from "./../../public/images/C1.png"
 import C2 from "./../../public/images/C2.png"
 import C3 from "./../../public/images/C3.png"
+import C4 from "./../../public/images/C4.jpg"
 import DiscountBg from "./../../public/images/discount-bg.svg";
 import DashboardFrame from "./../../public/images/dashboard-frame.svg"
 import deliverCar from "./../../public/icons/deliver-car.svg"
@@ -104,6 +105,16 @@ import pi5 from "./../../public/images/products/1/5.png"
 import pi6 from "./../../public/images/products/1/6.jpg"
 
 
+import p2i1 from "./../../public/images/products/2/1.jpg"
+import p2i2 from "./../../public/images/products/2/2.jpg"
+import p2i3 from "./../../public/images/products/2/3.jpg"
+import p2i4 from "./../../public/images/products/2/4.jpeg"
+import p2i5 from "./../../public/images/products/2/5.jpg"
+import p2i6 from "./../../public/images/products/2/6.jpg"
+import p2i7 from "./../../public/images/products/2/7.jpg"
+import p2i8 from "./../../public/images/products/2/8.jpg"
+
+
 
 export const icons = {
     arrowL,
@@ -165,6 +176,7 @@ export const icons = {
 
 export const images = {
     product1: {pi1, pi2, pi3, pi4, pi5, pi6},
+    product2: {p2i1, p2i2, p2i3, p2i4, p2i5, p2i6, p2i7, p2i8,},
 
     aboutNumberBg,
     AP1,
@@ -190,7 +202,7 @@ export const images = {
     Hero2,
     SpecialSolistia,
     P1, P2, P3,
-    C1, C2, C3,
+    C1, C2, C3, C4,
     Rev1,
     T1,T2, T3,
     ShopLocationQrCode,

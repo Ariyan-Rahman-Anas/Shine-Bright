@@ -60,39 +60,39 @@ export const allItems = [
     title: "All Products",
     items: [
       { name: "New Arrivals", route: "/products" },
-      { name: "Best Seller", route: "/best-seller" },
-      { name: "Top Picks", route: "/top-picks" },
-      { name: "Top Picks", route: "/top-picks" },
-      { name: "Top Picks", route: "/top-picks" },
-      { name: "Trending", route: "/trending" },
-      { name: "Personalized", route: "/personalized" },
-      { name: "Personalizable", route: "/personalizable" },
+      { name: "Best Seller", route: "/products" },
+      { name: "Top Picks", route: "/products" },
+      { name: "Top Picks", route: "/products" },
+      { name: "Top Picks", route: "/products" },
+      { name: "Trending", route: "/products" },
+      { name: "Personalized", route: "/products" },
+      { name: "Personalizable", route: "/products" }
     ]
   },
   {
     title: "All Categories",
     items: [
-      { name: "New Arrivals", route: "/new-arrivals" },
-      { name: "Best Seller", route: "/best-seller" },
-      { name: "Top Picks", route: "/top-picks" },
-      { name: "Top Picks", route: "/top-picks" },
-      { name: "Trending", route: "/trending" },
-      { name: "Trending", route: "/trending" },
-      { name: "Personalized", route: "/personalized" },
-      { name: "Personalizable", route: "/personalizable" },
+      { name: "New Arrivals", route: "/products" },
+      { name: "Best Seller", route: "/products" },
+      { name: "Top Picks", route: "/products" },
+      { name: "Top Picks", route: "/products" },
+      { name: "Top Picks", route: "/products" },
+      { name: "Trending", route: "/products" },
+      { name: "Personalized", route: "/products" },
+      { name: "Personalizable", route: "/products" }
     ]
   },
   {
     title: "All Brands",
     items: [
-      { name: "New Arrivals", route: "/new-arrivals" },
-      { name: "Best Seller", route: "/best-seller" },
-      { name: "Top Picks", route: "/top-picks" },
-      { name: "Top Picks", route: "/top-picks" },
-      { name: "Top Picks", route: "/top-picks" },
-      { name: "Trending", route: "/trending" },
-      { name: "Personalized", route: "/personalized" },
-      { name: "Personalizable", route: "/personalizable" },
+     { name: "New Arrivals", route: "/products" },
+      { name: "Best Seller", route: "/products" },
+      { name: "Top Picks", route: "/products" },
+      { name: "Top Picks", route: "/products" },
+      { name: "Top Picks", route: "/products" },
+      { name: "Trending", route: "/products" },
+      { name: "Personalized", route: "/products" },
+      { name: "Personalizable", route: "/products" }
     ]
   },
 ]
@@ -203,14 +203,13 @@ export const teamMembers = [
 
 
 
-export const AllProducts = [
+export const cosOfBeautyProducts = [
   {
     id: 1,
-    img: images.P1,
-    media: [images.P1, images.P2, images.P3, images.AP1, images.P2, images.P3],
+    img: images.product1.pi1,
     category: "Hourglass",
     tags: ["Best Seller", "Value for Money", "Top Picks"],
-    title: "Huda Beauty Easy Blur Natural Airbrush Foundation with Niacinamide",
+    title: "Huda Beauty Easy Blur Airbrush Foundation",
     currentPrice: "12.99",
     previousPrice: "14.99",
     sizes: [10, 20, 25, 50, 100, 250, 500, 750],
@@ -218,63 +217,28 @@ export const AllProducts = [
   },
   {
     id: 2,
-    img: images.P2,
-    media: [images.P1, images.P2, images.P3, images.AP1, images.P2, images.P3],
-    category: "Hourglass",
-    tags: ["Best Seller", "Value for Money", "Top Picks"],
-    title: "Huda Beauty Easy Blur Natural Airbrush Foundation with Niacinamide",
-    shades: ["#FF0000", "#00FF00", "#0000FF", "#C68B59", "#DBA36B", "#EDBB94", "#F5C3A8", "#F8CFC0", "#F9D2C4", "#FADAD0", "#FFF1DC", "#00FF07", "#0000FF"],
-    currentPrice: "12.99",
-    previousPrice: "14.99",
-    sizes: [10, 20, 25, 50, 100, 250, 500, 750],
+    img: images.product1.pi2,
+    title: "Huda Beauty Easy Blur Swatches Foundation",
   },
   {
     id: 3,
-    img: images.P3,
-    media: [images.P1, images.P2, images.P3, images.AP1, images.P2, images.P3],
-    category: "Hourglass",
-    tags: ["Best Seller", "Value for Money", "Top Picks"],
-    title: "Huda Beauty Easy Blur Natural Airbrush Foundation with Niacinamide",
-    currentPrice: "12.99",
-    previousPrice: "14.99",
-    sizes: [10, 20, 25, 50, 100, 250, 500, 750],
-    shades: ["#FF0000", "#00FF00", "#0000FF", "#C68B59", "#DBA36B", "#EDBB94", "#F5C3A8", "#F8CFC0", "#F9D2C4", "#FADAD0", "#FFF1DC", "#00FF07", "#0000FF"],
+    img: images.product1.pi3,
+    title: "Huda Beauty Easy Blur Blur Foundation Shades",
   },
   {
     id: 4,
-    img: images.P3,
-    media: [images.P1, images.P2, images.P3, images.AP1, images.P2, images.P3],
-    category: "Hourglass",
-    tags: ["Best Seller", "Value for Money", "Top Picks"],
+    img: images.product1.pi4,
     title: "Huda Beauty Easy Blur Natural Airbrush Foundation with Niacinamide",
-    currentPrice: "12.99",
-    previousPrice: "14.99",
-    sizes: [10, 20, 25, 50, 100, 250, 500, 750],
-    shades: ["#FF0000", "#00FF00", "#0000FF", "#C68B59", "#DBA36B", "#EDBB94", "#F5C3A8", "#F8CFC0", "#F9D2C4", "#FADAD0", "#FFF1DC", "#00FF07", "#0000FF"],
   },
   {
     id: 5,
-    img: images.P2,
-    media: [images.P1, images.P2, images.P3, images.AP1, images.P2, images.P3],
-    category: "Hourglass",
-    tags: ["Best Seller", "Value for Money", "Top Picks"],
+    img: images.product1.pi5,
     title: "Huda Beauty Easy Blur Natural Airbrush Foundation with Niacinamide",
-    currentPrice: "12.99",
-    previousPrice: "14.99",
-    sizes: [10, 20, 25, 50, 100, 250, 500, 750],
-    shades: ["#FF0000", "#00FF00", "#0000FF", "#C68B59", "#DBA36B", "#EDBB94", "#F5C3A8", "#F8CFC0", "#F9D2C4", "#FADAD0", "#FFF1DC", "#00FF07", "#0000FF"],
   },
   {
     id: 6,
-    img: images.P1,
-    media: [images.P1, images.P2, images.P3, images.AP1, images.P2, images.P3],
-    category: "Hourglass",
-    tags: ["Best Seller", "Value for Money", "Top Picks"],
+    img: images.product1.pi6,
     title: "Huda Beauty Easy Blur Natural Airbrush Foundation with Niacinamide",
-    currentPrice: "12.99",
-    previousPrice: "14.99",
-    sizes: [10, 20, 25, 50, 100, 250, 500, 750],
-    shades: ["#FF0000", "#00FF00", "#0000FF", "#C68B59", "#DBA36B", "#EDBB94", "#F5C3A8", "#F8CFC0", "#F9D2C4", "#FADAD0", "#FFF1DC", "#00FF07", "#0000FF"],
   }
 ]
 
@@ -744,9 +708,9 @@ export const SBProductsData = [
             "product_id": "p-1",
             "size_attribute_id": "s-1",
             "color_attribute_id": "c-1",
-            "is_primary": false,
+            "is_primary": true,
             "is_thumbnail": false,
-            "photoURL": "https://taupe-notch-bkt.s3.ap-southeast-1.amazonaws.com/product-photos/1aab4c02-Copy of Untitled Design.jpg"
+            "photoURL": images.product1.pi1
           },
           {
             "id": "i-2",
@@ -755,7 +719,7 @@ export const SBProductsData = [
             "color_attribute_id": "c-1",
             "is_primary": false,
             "is_thumbnail": false,
-            "photoURL": "https://taupe-notch-bkt.s3.ap-southeast-1.amazonaws.com/product-photos/1aab4c02-Copy of Untitled Design.jpg"
+            "photoURL": images.product1.pi2
           }
         ]
       },
@@ -772,7 +736,7 @@ export const SBProductsData = [
             "color_attribute_id": "c-2",
             "is_primary": false,
             "is_thumbnail": false,
-            "photoURL": "https://taupe-notch-bkt.s3.ap-southeast-1.amazonaws.com/product-photos/1aab4c02-Copy of Untitled Design.jpg"
+            "photoURL": images.product1.pi3
           }
         ]
       },
@@ -789,7 +753,7 @@ export const SBProductsData = [
             "color_attribute_id": "c-3",
             "is_primary": false,
             "is_thumbnail": false,
-            "photoURL": "https://taupe-notch-bkt.s3.ap-southeast-1.amazonaws.com/product-photos/1aab4c02-Copy of Untitled Design.jpg"
+            "photoURL": images.product1.pi4
           }
         ]
       },
@@ -805,8 +769,8 @@ export const SBProductsData = [
             "size_attribute_id": "s-3",
             "color_attribute_id": "c-4",
             "is_primary": false,
-            "is_thumbnail": false,
-            "photoURL": "https://taupe-notch-bkt.s3.ap-southeast-1.amazonaws.com/product-photos/1aab4c02-Copy of Untitled Design.jpg"
+            "is_thumbnail": true,
+            "photoURL": images.product1.pi5
           }
         ]
       },
@@ -823,7 +787,7 @@ export const SBProductsData = [
             "color_attribute_id": "c-5",
             "is_primary": false,
             "is_thumbnail": false,
-            "photoURL": "https://taupe-notch-bkt.s3.ap-southeast-1.amazonaws.com/product-photos/1aab4c02-Copy of Untitled Design.jpg"
+            "photoURL": images.product1.pi6
           }
         ]
       },
@@ -857,7 +821,7 @@ export const SBProductsData = [
       },
       {
         "title": "New Arrival",
-        "photo_path": "https://taupe-notch-bkt.s3.ap-southeast-1.amazonaws.com/TAG_MASTER/new-arrival.png"
+        "photo_path": null
       }
     ],
     "pricing_groups": [
@@ -983,10 +947,19 @@ export const SBProductsData = [
             "product_id": "p-2",
             "size_attribute_id": "s-1",
             "color_attribute_id": "c-1",
-            "is_primary": true,
+            "is_primary": false,
             "is_thumbnail": true,
-            "photoURL": "https://taupe-notch-bkt.s3.ap-southeast-1.amazonaws.com/product-photos/foundation-ivory.jpg"
-          }
+            "photoURL": images.product2.p2i1
+          },
+          {
+            "id": "i-2",
+            "product_id": "p-2",
+            "size_attribute_id": "s-1",
+            "color_attribute_id": "c-1",
+            "is_primary": false,
+            "is_thumbnail": true,
+            "photoURL": images.product2.p2i2
+          },
         ]
       },
       {
@@ -996,14 +969,23 @@ export const SBProductsData = [
         "description": "#f4e4c9",
         "photos": [
           {
-            "id": "i-2",
+            "id": "i-3",
             "product_id": "p-2",
             "size_attribute_id": "s-1",
             "color_attribute_id": "c-2",
             "is_primary": false,
             "is_thumbnail": false,
-            "photoURL": "https://taupe-notch-bkt.s3.ap-southeast-1.amazonaws.com/product-photos/foundation-vanilla.jpg"
-          }
+            "photoURL":images.product2.p2i3
+          },
+          {
+            "id": "i-4",
+            "product_id": "p-2",
+            "size_attribute_id": "s-1",
+            "color_attribute_id": "c-2",
+            "is_primary": false,
+            "is_thumbnail": false,
+            "photoURL":images.product2.p2i4
+          },
         ]
       },
       {
@@ -1013,13 +995,48 @@ export const SBProductsData = [
         "description": "#e6d3b5",
         "photos": [
           {
-            "id": "i-3",
+            "id": "i-5",
             "product_id": "p-2",
             "size_attribute_id": "s-2",
             "color_attribute_id": "c-3",
             "is_primary": false,
             "is_thumbnail": false,
-            "photoURL": "https://taupe-notch-bkt.s3.ap-southeast-1.amazonaws.com/product-photos/foundation-beige.jpg"
+            "photoURL": images.product2.p2i5
+          },
+          {
+            "id": "i-6",
+            "product_id": "p-2",
+            "size_attribute_id": "s-2",
+            "color_attribute_id": "c-3",
+            "is_primary": true,
+            "is_thumbnail": false,
+            "photoURL": images.product2.p2i6
+          }
+        ]
+      },
+      {
+        "id": "c-4",
+        "attribute_type": "COLOR",
+        "title": "Creamy-Beige",
+        "description": "#F75270",
+        "photos": [
+          {
+            "id": "i-7",
+            "product_id": "p-2",
+            "size_attribute_id": "s-2",
+            "color_attribute_id": "c-4",
+            "is_primary": false,
+            "is_thumbnail": false,
+            "photoURL":images.product2.p2i7
+          },
+           {
+            "id": "i-8",
+            "product_id": "p-2",
+            "size_attribute_id": "s-2",
+            "color_attribute_id": "c-4",
+            "is_primary": false,
+            "is_thumbnail": false,
+            "photoURL":images.product2.p2i8
           }
         ]
       },
@@ -1034,6 +1051,12 @@ export const SBProductsData = [
         "attribute_type": "SIZE",
         "title": "50 ML",
         "description": "50 ML"
+      },
+      {
+        "id": "s-3",
+        "attribute_type": "SIZE",
+        "title": "150 ML",
+        "description": "150 ML"
       }
     ],
     "tags": [
@@ -1093,6 +1116,30 @@ export const SBProductsData = [
           "id": "s-2",
           "title": "50 ML",
           "description": "50 ML"
+        }
+      },
+       {
+        "id": "pg-3",
+        "product_id": "p-2",
+        "discount_price": "3200",
+        "discount_start": "2024-01-01",
+        "discount_end": "2024-12-31",
+        "grouped_id": "3",
+        "is_infinite": true,
+        "is_stockout": false,
+        "is_discounted": true,
+        "regular_price": "3800",
+        "discount_type": "PERCENTAGE",
+        "discount_value": "15",
+        "color": {
+          "id": "c-4",
+          "title": "Creamy-Beige",
+          "description": "#F75270"
+        },
+        "size": {
+          "id": "s-3",
+          "title": "150 ML",
+          "description": "150 ML"
         }
       }
     ],

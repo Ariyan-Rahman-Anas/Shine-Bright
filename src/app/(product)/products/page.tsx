@@ -1,4 +1,5 @@
 "use client"
+
 import Card from '@/components/Atoms/Card'
 import IsFilter from '@/components/pageComponents/Products/IsFilter'
 import SortBy from '@/components/pageComponents/Products/SortBy'
@@ -6,7 +7,7 @@ import FloatingThemeBtn from '@/components/shared/FloatingThemeBtn'
 import PathIndicator from '@/components/shared/PathIndicator'
 import SecondaryButton from '@/components/shared/SecondaryButton'
 import FilterSheetForSmDevices from '@/components/sheets/FilterSheetForSmDevices'
-import { useGetAllProductsQuery } from '@/redux/api/productsApi'
+import { SBProductsData } from '@/constant'
 import React, { useState } from 'react'
 import { BsEye } from 'react-icons/bs'
 import { FiEyeOff } from 'react-icons/fi'
@@ -19,8 +20,6 @@ const ProductsPage = () => {
     const [loading, setLoading] = useState(false)
     const { selected } = useSelector((state: any) => state.category)
 
-    const { data: productsData } = useGetAllProductsQuery("")
-
     const handleLoadMore = () => {
         setLoading(true)
         setTimeout(() => {
@@ -29,8 +28,8 @@ const ProductsPage = () => {
         }, 1000)
     }
 
-    const hasMoreItems = visibleItems < productsData?.data?.length
-    const displayedProducts = productsData?.data?.slice(0, visibleItems)
+    const hasMoreItems = visibleItems < SBProductsData?.length
+    const displayedProducts = SBProductsData?.slice(0, visibleItems)
 
     return (
         <div className='page-setup'>
@@ -85,7 +84,7 @@ const ProductsPage = () => {
                     )}
 
                     {/* End Message */}
-                    {!hasMoreItems && productsData?.data?.length > 8 && (
+                    {!hasMoreItems && SBProductsData?.length > 8 && (
                         <div className="text-center mt-8 p-6 bg-gray-50 rounded-lg">
                             <p className="text-gray-600 text-lg">
                                 You have reached the end. Do a search to keep exploring!

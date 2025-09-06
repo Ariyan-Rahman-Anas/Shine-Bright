@@ -6,7 +6,7 @@ import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import { useSelector } from "react-redux"
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
-import { AllProducts } from "@/constant"
+import { cosOfBeautyProducts } from "@/constant"
 
 const CostOfBeauty = () => {
 
@@ -34,7 +34,7 @@ const CostOfBeauty = () => {
     }, [])
 
     // Calculate total number of slides
-    const totalSlides = Math.ceil(AllProducts?.length / itemsPerSlide)
+    const totalSlides = Math.ceil(cosOfBeautyProducts?.length / itemsPerSlide)
 
     // Handle next slide with animation
     const nextSlide = () => {
@@ -112,7 +112,7 @@ const CostOfBeauty = () => {
     // Get visible products for current slide
     const visibleProducts = () => {
         const startIndex = currentSlide * itemsPerSlide
-        return AllProducts.slice(startIndex, startIndex + itemsPerSlide)
+        return cosOfBeautyProducts.slice(startIndex, startIndex + itemsPerSlide)
     }
 
     return (
@@ -161,7 +161,7 @@ const CostOfBeauty = () => {
                     className="w-full"
                 >
                     <CarouselContent>
-                        {AllProducts.map(({ title, img }, index) => (
+                        {cosOfBeautyProducts.map(({ title, img }, index) => (
                             <CarouselItem key={index} className="basis-full ">
                                 <div
                                     key={`product-${currentSlide}-${index}`}
@@ -176,7 +176,7 @@ const CostOfBeauty = () => {
                                     </div>
                                     <h3 className="text-lg font-medium mb-4 line-clamp-2">{title}</h3>
                                     <PrimaryButton
-                                        to="/"
+                                        to="/products/maybelline-lifter-gloss-with-hyaluronic-acid"
                                         title="SHOP NOW"
                                         className={`py-2 w-full font-semibold uppercase ${selected === "makeup"
                                             // ? "bg-mColor3/80 "
@@ -215,7 +215,7 @@ const CostOfBeauty = () => {
                             </div>
                             <h3 className="text-lg font-medium mb-4 line-clamp-2">{product.title}</h3>
                             <PrimaryButton
-                                to="/"
+                                to="/products/maybelline-lifter-gloss-with-hyaluronic-acid"
                                 title="SHOP NOW"
                                 className={`py-2 w-full font-semibold uppercase ${selected === "makeup"
                                     // ? "bg-mColor3/80 "

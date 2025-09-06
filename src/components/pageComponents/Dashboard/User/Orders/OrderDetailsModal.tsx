@@ -2,14 +2,14 @@ import PrimaryButton from "@/components/shared/PrimaryButton"
 import { useSelector } from "react-redux"
 import OrderCancelModal from "./OrderCancelModal"
 import { } from "@radix-ui/react-dialog"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
 
 const OrderDetailsModal = ({ data }: { data: any }) => {
-    const { id, address, amount, orderDate, orderId, invoiceId, numberOfProducts, orderStatus, paymentStatus } = data || {}
+    const { address, amount, orderDate, orderId, invoiceId, numberOfProducts, orderStatus, paymentStatus } = data || {}
 
     const { selected } = useSelector((state: any) => state.category)
-    
+
     return (
         <Dialog>
             <DialogTrigger asChild >
@@ -81,24 +81,24 @@ const OrderDetailsModal = ({ data }: { data: any }) => {
                             <div className="flex flex-col md:flex-row items-center justify-center md:justify-start gap-3">
                                 <PrimaryButton title="Drop a Review" to="/review" className={`w-full md:w-fit py-1.5 px-6 ${selected === "makeup" ? "bg-mColor2 text-blackCustom " : "bg-sColor6 text-whiteCustom"}`} />
                                 <PrimaryButton title="Return Request" to="/return" className={`w-full md:w-fit py-1.5 px-6 ${selected === "makeup" ? "bg-mColor3/80 text-blackCustom " : "bg-sColor6 text-whiteCustom "}`} />
-                                <PrimaryButton title="View Products" to="/products-list" className={`w-full md:w-fit py-1.5 px-6 border-bColor2 border `} />
+                                <PrimaryButton title="View Products" to={`/ordered-products-list/${orderId}`} className={`w-full md:w-fit py-1.5 px-6 border-bColor2 border `} />
                             </div>
                         ) : orderStatus === "Processing" ? (
                             <div className="flex items-center justify-start gap-3">
                                 <OrderCancelModal />
-                                <PrimaryButton title="View Products" to={`/ordered-products-list/${id}`} className={` py-1.5 px-6 border-bColor2 border `} />
+                                <PrimaryButton title="View Products" to={`/ordered-products-list/${orderId}`} className={` py-1.5 px-6 border-bColor2 border `} />
                             </div>
                         ) : orderStatus === "Shipped" ? (
                             <div className="flex items-center justify-start gap-3">
-                                <PrimaryButton title="View Products" to={`/ordered-products-list/${id}`} className={` py-1.5 px-6 border-bColor2 border `} />
+                                <PrimaryButton title="View Products" to={`/ordered-products-list/${orderId}`} className={` py-1.5 px-6 border-bColor2 border `} />
                             </div>
                         ) : orderStatus === "Cancelled" ? (
                             <div className="flex items-center justify-start gap-3">
-                                <PrimaryButton title="View Products" to={`/ordered-products-list/${id}`} className={` py-1.5 px-6 border-bColor2 border `} />
+                                <PrimaryButton title="View Products" to={`/ordered-products-list/${orderId}`} className={` py-1.5 px-6 border-bColor2 border `} />
                             </div>
                         ) : orderStatus === "ORDERED" && (
                             <div className="flex items-center justify-start gap-3 w-fit ">
-                                <PrimaryButton title="View Products" to={`/ordered-products-list/${id}`} className={` py-1.5 px-6 border-bColor2 border `} />
+                                <PrimaryButton title="View Products" to={`/ordered-products-list/${orderId}`} className={` py-1.5 px-6 border-bColor2 border `} />
                             </div>
                         )
                     }

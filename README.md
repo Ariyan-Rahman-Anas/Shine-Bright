@@ -40,19 +40,6 @@ A beautifully designed ladies makeup and cosmetics website showcasing excellent 
 - **Deployment**: Vercel Platform
 
 
-## 🎯 Project Structure
-
-```
-shine-bright/
-├── app/                    # Next.js App Router
-├── components/             # Reusable UI components
-├── public/                # Static assets
-├── styles/                # Global styles and themes
-├── utils/                 # Utility functions
-├── redux/                 # State management
-└── types/                 # TypeScript type definitions
-```
-
 ## 🔧 Features in Detail
 
 ### Authentication System
@@ -122,6 +109,7 @@ Password: SB@Acc#123
 
 **Ariyan Rahman Anas**
 - GitHub: [@Ariyan-Rahman-Anas](https://github.com/Ariyan-Rahman-Anas)
+- Portfolio: [@Ariyan-Rahman-Anas](https://ariyanrahmananas.vercel.app)
 
 ## 📝 Note
 
@@ -129,7 +117,7 @@ This is a frontend-only implementation using mock data for demonstration purpose
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to contact vai mail [anas.hllw@gmail.com](mailto:anas.hllw@gmail.com]).
+Contributions, issues, and feature requests are welcome! Feel free to contact vai mail [anas.hllw@gmail.com](mailto:anas.hllw@gmail.com])
 
 ## 📄 License
 

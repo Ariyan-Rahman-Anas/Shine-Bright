@@ -1,13 +1,9 @@
-"use client"
-
 import Card from "@/components/Atoms/Card"
 import SectionHeader from "@/components/Atoms/SectionHeader"
 import { Carousel, CarouselContent, CarouselDots, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { AllProducts } from "@/constant"
-
+import { SBProductsData } from "@/constant"
 
 const TopPicks = () => {
-
     return (
         <section className="overflow-x-hidden h-[670px] sm:h-[610px] md:h-fit">
             <div className="overflow-left-hidden section-setup-1600-p space-y-5">
@@ -23,7 +19,7 @@ const TopPicks = () => {
                     className="w-full"
                 >
                     <CarouselContent>
-                        {AllProducts.map((product, index) => (
+                        {SBProductsData.map((product, index) => (
                             <CarouselItem key={index} className="basis-1/2 md:basis-1/3 lg:basis-1/5">
                                 <Card product={product} />
                             </CarouselItem>

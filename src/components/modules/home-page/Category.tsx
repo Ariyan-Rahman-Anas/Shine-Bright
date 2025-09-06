@@ -1,5 +1,3 @@
-"use client"
-
 import { images } from "@/assets"
 import Image from "next/image"
 import { Carousel, CarouselContent, CarouselDots, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
@@ -19,6 +17,10 @@ const Category = () => {
         {
             name: "Lips",
             img: images.C3
+        },
+        {
+            name: "Genie",
+            img: images.C4
         }
     ]
 

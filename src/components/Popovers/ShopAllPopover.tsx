@@ -34,7 +34,7 @@ const ShopAllPopover = () => {
                         <div>
                             <PrimaryButton
                                 title="View All"
-                                to="/"
+                                to="/products"
                                 className="min-w-24 text-blackCustom px-5"
                             />
                         </div>

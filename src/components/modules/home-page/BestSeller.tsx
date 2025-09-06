@@ -1,12 +1,10 @@
-"use client"
-
 import Card from "@/components/Atoms/Card"
 import SectionHeader from "@/components/Atoms/SectionHeader"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { useGetAllProductsQuery } from "@/redux/api/productsApi"
+import { SBProductsData } from "@/constant"
 
 const BestSeller = () => {
-    const { data: productsData } = useGetAllProductsQuery({})
+
     return (
         <section className="overflow-x-hidden h-[670px] sm:h-[610px] md:h-fit">
             <div className="overflow-left-hidden section-setup-1600-p space-y-5 ">
@@ -22,14 +20,13 @@ const BestSeller = () => {
                     className="w-full"
                 >
                     <CarouselContent>
-                        {productsData?.data?.map((product: any, index: number) => (
+                        {SBProductsData?.map((product: any, index: number) => (
                             <CarouselItem key={index} className="basis-1/2 md:basis-1/3 lg:basis-1/5">
                                 <Card product={product} />
                             </CarouselItem>
                         ))}
                     </CarouselContent>
                     <CarouselPrevious className="absolute -bottom-12" />
-                    {/* <CarouselDots className="mt-7 md:mt-0" /> */}
                     <CarouselNext className="absolute -bottom-12" />
                 </Carousel>
             </div>

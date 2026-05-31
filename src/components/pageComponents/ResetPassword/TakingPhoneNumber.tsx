@@ -1,47 +1,68 @@
 "use client"
 
-import SecondaryButton from "@/components/shared/SecondaryButton";
-import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
+import SecondaryButton from "@/components/shared/SecondaryButton"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { forgotPasswordSchema, type ForgotPasswordFormData } from "@/validations/auth.validations"
+import { authClient } from "@/lib/auth-client"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
-const TakingPhoneNumber = ({setStep}: {setStep: (step: number) => void}) => {
-    const router = useRouter();
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = (data: any) => {
-        console.log(data);
+interface Props {
+    setStep: (step: number) => void
+    setEmail: (email: string) => void
+}
+
+const ForgotPasswordForm = ({ setStep, setEmail }: Props) => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+    } = useForm<ForgotPasswordFormData>({ resolver: zodResolver(forgotPasswordSchema) })
+
+    const onSubmit = async (data: ForgotPasswordFormData) => {
+        const { error } = await authClient.requestPasswordReset({
+            email: data.email,
+            redirectTo: `${window.location.origin}/reset-password`,
+        })
+
+        if (error) {
+            toast.error(error.message ?? "Failed to send reset email.")
+            return
+        }
+
+        setEmail(data.email)
+        toast.success("Password reset link sent! Check your email.")
         setStep(2)
     }
+
     return (
-        <section className="w-full">
-            <form onSubmit={handleSubmit(onSubmit)} className="w-full md:max-w-lg mx-auto space-y-2 ">
-                {/* phone */}
-                <div className="flex flex-col gap-1 w-full">
-                    <label htmlFor="phone">Phone Number<span className="text-lg">*</span></label>
+        <section className="w-full md:max-w-lg mx-auto">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
+                <div className="flex flex-col w-full">
+                    <label htmlFor="email">
+                        Email Address <span className="text-error text-lg">*</span>
+                    </label>
                     <input
-                        type="number"
-                        id="phone"
-                        placeholder="Enter Phone"
-                        className={`input-field ${errors.phone ? 'border-red-500' : ''}`}
-                        {...register("phone")}
+                        type="email"
+                        id="email"
+                        placeholder="Enter your registered email"
+                        className="input-field"
+                        {...register("email")}
                     />
-                    {/* {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>} */}
+                    {errors.email && (
+                        <p className="text-error text-sm mt-1">{errors.email.message}</p>
+                    )}
                 </div>
-                <div className="flex items-center gap-2">
-                    <SecondaryButton
-                        bType="submit"
-                        title="Continue"
-                        className="w-full py-1.5 md:w-[80%] bg-mColor3/80 text-blackCustom text-base font-medium uppercase"
-                    />
-                    <SecondaryButton
-                        bType="button"
-                        title="Cancel"
-                        className="w-full py-1.5 md:w-[80%] bg-whiteCustom text-blackCustom text-base font-medium uppercase border-2 border-bColor1 "
-                        onClick={() => router.replace("/")}
-                    />
-                </div>
+
+                <SecondaryButton
+                    bType="submit"
+                    title={isSubmitting ? "Sending..." : "Send Reset Link"}
+                    className="w-full py-2 text-base font-medium uppercase"
+                    disabled={isSubmitting}
+                />
             </form>
         </section>
     )
 }
 
-export default TakingPhoneNumber
+export default ForgotPasswordForm

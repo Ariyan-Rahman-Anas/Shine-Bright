@@ -1,106 +1,100 @@
 "use client"
 
-import SecondaryButton from "@/components/shared/SecondaryButton";
-import { useForm } from "react-hook-form";
-import Link from "next/link";
-import PasswordInputField from "@/components/shared/PasswordInputField";
-import { toast } from "sonner";
-import { useLogoutHandler } from "@/hooks/useLogoutHandler";
-import { useRouter } from "next/navigation";
-
-type PasswordChangeFormData = {
-    old_password: string;
-    new_password: string;
-    confirm_password: string;
-};
+import SecondaryButton from "@/components/shared/SecondaryButton"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import Link from "next/link"
+import PasswordInputField from "@/components/shared/PasswordInputField"
+import { toast } from "sonner"
+import { useLogoutHandler } from "@/hooks/useLogoutHandler"
+import { authClient } from "@/lib/auth-client"
+import { changePasswordSchema, type ChangePasswordFormData } from "@/validations/auth.validations"
 
 const ChangePasswordForm = () => {
-    const router = useRouter()
     const {
         register,
         handleSubmit,
-        watch,
         reset,
-        formState: { errors },
-    } = useForm<PasswordChangeFormData>();
+        formState: { errors, isSubmitting },
+    } = useForm<ChangePasswordFormData>({ resolver: zodResolver(changePasswordSchema) })
 
-    const handleLogout = useLogoutHandler({
-        // onComplete: () => setOpen(false),
-    })
+    const handleLogout = useLogoutHandler()
 
-    const onSubmit = async (data: PasswordChangeFormData) => {
-        if (data?.new_password?.length < 5) {
-            toast.error("New Password must be at least 5 characters long")
+    const onSubmit = async (data: ChangePasswordFormData) => {
+        const { error } = await authClient.changePassword({
+            currentPassword: data.currentPassword,
+            newPassword: data.newPassword,
+            revokeOtherSessions: true,
+        })
+
+        if (error) {
+            toast.error(error.message ?? "Failed to change password.")
             return
         }
-        reset();
-        handleLogout()
-        router.replace("/login")
-    };
 
+        reset()
+        toast.success("Password changed successfully. Please sign in again.")
+        await handleLogout()
+    }
 
     return (
         <div>
             <h1 className="text-base uppercase font-medium mb-2">Change Password</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="space-y-3 mb-1">
                     <PasswordInputField
-                        id="old_password"
-                        label="Old Password*"
-                        placeholder="Old Password*"
+                        id="currentPassword"
+                        label="Current Password*"
+                        placeholder="Current Password"
                         isLabel={false}
                         register={register}
-                        name="old_password"
+                        name="currentPassword"
                         required={true}
                     />
-                    {errors.old_password && (
-                        <p className="text-red-500 text-sm">{errors.old_password.message}</p>
+                    {errors.currentPassword && (
+                        <p className="text-error text-sm">{errors.currentPassword.message}</p>
                     )}
 
                     <PasswordInputField
-                        id="new_password"
+                        id="newPassword"
                         label="New Password*"
-                        placeholder="New Password*"
+                        placeholder="New Password"
                         isLabel={false}
                         register={register}
-                        name="new_password"
+                        name="newPassword"
                         required={true}
-
                     />
-                    {errors.new_password && (
-                        <p className="text-red-500 text-sm">{errors.new_password.message}</p>
+                    {errors.newPassword && (
+                        <p className="text-error text-sm">{errors.newPassword.message}</p>
                     )}
 
                     <PasswordInputField
-                        id="confirm_password"
+                        id="confirmPassword"
                         label="Confirm Password*"
-                        placeholder="Confirm Password*"
+                        placeholder="Confirm New Password"
                         isLabel={false}
                         register={register}
-                        name="confirm_password"
+                        name="confirmPassword"
                         required={true}
-
                     />
-                    {errors.confirm_password && (
-                        <p className="text-red-500 text-sm">{errors.confirm_password.message}</p>
+                    {errors.confirmPassword && (
+                        <p className="text-error text-sm">{errors.confirmPassword.message}</p>
                     )}
                 </div>
 
-                {/* i need to watch the password here, that password and confirm password should be same */}
-                {watch("new_password") !== watch("confirm_password") && (
-                    <p className="text-error text-sm mt-1">
-                        Passwords do not match
-                    </p>
-                )}
+                <p className="text-sm text-bColor4 mt-2">
+                    Password must contain uppercase, lowercase, number and special character.
+                </p>
 
                 <div className="flex flex-col md:flex-row items-center gap-4 mt-4">
                     <SecondaryButton
                         bType="submit"
-                        title="Save New Password"
+                        title={isSubmitting ? "Saving..." : "Save New Password"}
                         className="w-full md:w-fit text-base font-medium px-5 py-2"
+                        disabled={isSubmitting}
                     />
                     <Link
-                        href="/"
+                        href="/reset-password"
                         className="text-error text-sm underline underline-offset-2"
                     >
                         Forgot Password?
@@ -108,6 +102,7 @@ const ChangePasswordForm = () => {
                 </div>
             </form>
         </div>
-    );
-};
-export default ChangePasswordForm;
+    )
+}
+
+export default ChangePasswordForm

@@ -3,119 +3,106 @@
 import PasswordInputField from "@/components/shared/PasswordInputField";
 import SecondaryButton from "@/components/shared/SecondaryButton";
 import SocialLogin from "@/components/shared/SocialLogin";
-import CheckBox from "@/components/shared/CheckBox";
-import { userInfo } from "@/constant";
-import { setUser } from "@/redux/features/authSlice";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signInSchema, type SignInFormData } from "@/validations/auth.validations";
+import { signIn } from "@/lib/auth-client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
-    const dispatch = useDispatch()
-    const router = useRouter()
-    const [loading, setLoading] = useState(false)
-    const [keepLoggedIn, setKeepLoggedIn] = useState(false)
-    const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null)
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const router = useRouter();
 
-    // Cleanup timeout on component unmount
-    useEffect(() => {
-        return () => {
-            if (timeoutId) {
-                clearTimeout(timeoutId);
-            }
-        };
-    }, [timeoutId]);
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+    } = useForm<SignInFormData>({ resolver: zodResolver(signInSchema) });
 
-    // Handle checkbox toggle
-    const handleKeepLoggedIn = () => {
-        setKeepLoggedIn(prev => !prev)
-    }
+    const onSubmit = async (data: SignInFormData) => {
+        const { error } = await signIn.email({
+            email: data.email,
+            password: data.password,
+            callbackURL: `${window.location.origin}/`,
+        });
 
-    const onSubmit = async (data: any) => {
-        setLoading(true)
+        if (error) {
+            toast.error(error.message ?? "Sign in failed. Please try again.");
+            return;
+        }
 
-        const loadingTimer = setTimeout(() => {
-            if (data.email !== userInfo.email) {
-                toast.error("Unauthenticated Email")
-                setLoading(false)
-                setTimeoutId(null)
-                return;
-            }
-
-            if (data.password !== userInfo.password) {
-                toast.error("Invalid Password")
-                setLoading(false)
-                setTimeoutId(null)
-                return;
-            }
-
-            dispatch(setUser(userInfo));
-            toast.success("Successfully Logged In!")
-            router.replace("/")
-            setLoading(false)
-            setTimeoutId(null)
-        }, 2000);
-
-        setTimeoutId(loadingTimer);
+        toast.success("Welcome back!");
+        router.replace("/");
     };
 
     return (
         <div className="w-full max-w-lg mx-auto">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full flex flex-col items-center justify-center">
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="space-y-4 w-full flex flex-col items-center justify-center"
+                noValidate
+            >
                 <div className="flex flex-col w-full">
-                    <label htmlFor="email">Email<span className="text-lg text-error ">*</span></label>
+                    <label htmlFor="email">
+                        Email<span className="text-lg text-error">*</span>
+                    </label>
                     <input
                         type="email"
                         id="email"
                         placeholder="Enter Email"
-                        required
-                        defaultValue={userInfo.email}
-                        className={`input-field`}
+                        className="input-field"
                         {...register("email")}
+                    />
+                    {errors.email && (
+                        <p className="text-error text-sm mt-1">{errors.email.message}</p>
+                    )}
+                </div>
+
+                <div className="w-full">
+                    <PasswordInputField
+                        id="password"
+                        label="Password"
+                        placeholder="Enter Password"
+                        required
+                        error={errors.password}
+                        register={register}
+                        name="password"
                     />
                 </div>
 
-                <PasswordInputField
-                    id="password"
-                    label="Password"
-                    placeholder="Enter Password"
-                    dValue={userInfo.password}
-                    required
-                    error={errors.password}
-                    register={register}
-                    name="password"
-                />
-
-                <p className="text-sm text-bColor4">Your password must contain at least one uppercase (A) , one lowercase (a) , one special character (#,$,%) and one digit (2)</p>
+                <div className="flex items-center justify-end w-full">
+                    <Link
+                        href="/reset-password"
+                        className="text-sm text-blackCustom hover:underline underline-offset-2"
+                    >
+                        Forgot Password?
+                    </Link>
+                </div>
 
                 <SecondaryButton
                     bType="submit"
-                    title={loading ? "Logging In..." : "Sign In"}
+                    title={isSubmitting ? "Signing In..." : "Sign In"}
                     className="w-full md:w-[80%] text-base font-medium uppercase py-2"
-                    disabled={loading}
+                    disabled={isSubmitting}
                 />
             </form>
 
-            <div className="flex items-center justify-between w-full my-8">
-                <CheckBox
-                    label="Keep me Logged in"
-                    onClick={handleKeepLoggedIn}
-                    checked={keepLoggedIn}
-                    isCenter={true}
-                />
-                <div>
-                    <Link href="/reset-password" className="text-blackCustom hover:underline underline-offset-2 ">Forgot Password?</Link>
-                </div>
+            <div className="mt-8">
+                <SocialLogin />
             </div>
 
-            <SocialLogin />
-            <p className="text-center mt-4 ">{`Don't have an account? `}<Link href="/registration" className="text-blackCustom font-semibold underline underline-offset-2 ">Create one</Link></p>
+            <p className="text-center mt-4">
+                {`Don't have an account? `}
+                <Link
+                    href="/registration"
+                    className="text-blackCustom font-semibold underline underline-offset-2"
+                >
+                    Create one
+                </Link>
+            </p>
         </div>
-    )
-}
+    );
+};
 
-export default LoginForm
+export default LoginForm;

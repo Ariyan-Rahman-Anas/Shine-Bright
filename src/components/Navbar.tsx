@@ -118,20 +118,23 @@ const Navbar = () => {
                   </div>
 
                   {/* User Dropdown Menu */}
-                  <div className={`hidden md:block md:absolute -top-3 right-8 z-50 bgmainBg shadow-lg border border-gray-200 rounded-md min-w-fit transition-all duration-200 ease-in-out ${open
+                  <div className={`hidden md:block md:absolute -top-3 right-8 z-50 shadow-lg border border-gray-200 rounded-md min-w-fit bg-white transition-all duration-200 ease-in-out ${open
                     ? "opacity-100 visible transform translate-x-0"
                     : "opacity-0 invisible transform -translate-x-2"
                     }`}>
-                    <div className='flex items-center justify-start gap-4 w-fit p-1 '>
+                    <div className='flex flex-col gap-1 w-fit p-1.5'>
                       <div onClick={() => setOpen(false)}>
-                        <PrimaryButton to="/profile" title="Dashboard" className={`px-6 py-1.5`} />
+                        <PrimaryButton to="/profile" title="User Dashboard" className={`px-6 py-1.5 w-full`} />
                       </div>
+                      {loggedInUserSelector?.role && loggedInUserSelector.role !== "CUSTOMER" && (
+                        <div onClick={() => setOpen(false)}>
+                          <PrimaryButton to="/admin" title="Admin Dashboard" className={`px-6 py-1.5 w-full`} />
+                        </div>
+                      )}
                       <SecondaryButton title="Logout"
                         onClick={handleLogout}
-                        style={{
-                          background: "transparent",
-                          color: "black",
-                        }} className="px-8 py-1 text-base w-full border2 border-bColor3 " />
+                        style={{ background: "transparent", color: "black" }}
+                        className="px-8 py-1 text-base w-full border border-bColor3" />
                     </div>
                   </div>
                 </div>
@@ -181,29 +184,20 @@ const Navbar = () => {
                     </div>
                     <div className='text-bColor4 w-full min-wfull '>
                       <h1 className={` text-lg font-semibold ${selected === "makeup" ? "text-mColor17" : "text-sColorBase3"}`} >{firstName} {lastName}</h1>
-                      <p>{`${email} ${countryCode}${phone}`} </p>
-                      <p className='text-bColor5 font-semibold mt-2 '>Address:</p>
-                      <div className="flex gap-2">
-                          <>
-                            <p>{"area"} - {"postal_code"}</p>
-                            <p>{"address"}</p>
-                            <p>{'zone'}</p>
-                            <p>{"city"}</p>
-                            <p>{"thana"}</p>
-                            <p>{"country"}</p>
-                          </>
-                      </div>
-                      <div className="flex items-center gap-4 mt-4 ">
-                        <div onClick={() => setOpen(false)} className="w-full" >
-                          <PrimaryButton to="/profile" title="Dashboard" className="w-full py-2 my-2" />
+                      <p className="text-sm">{email}</p>
+                      <div className="flex flex-col gap-2 mt-4">
+                        <div onClick={() => setOpen(false)} className="w-full">
+                          <PrimaryButton to="/profile" title="User Dashboard" className="w-full py-2" />
                         </div>
+                        {loggedInUserSelector?.role && loggedInUserSelector.role !== "CUSTOMER" && (
+                          <div onClick={() => setOpen(false)} className="w-full">
+                            <PrimaryButton to="/admin" title="Admin Dashboard" className="w-full py-2" />
+                          </div>
+                        )}
                         <SecondaryButton
                           onClick={handleLogout}
-                          title="Logout" style={{
-                            background: "transparent",
-                            border: "1px solid gray",
-                            color: "black",
-                          }} className="px4 py-1.5 text-base w-full" />
+                          title="Logout" style={{ background: "transparent", border: "1px solid gray", color: "black" }}
+                          className="py-1.5 text-base w-full" />
                       </div>
                     </div>
                   </div>

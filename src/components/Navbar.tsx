@@ -46,7 +46,7 @@ const Navbar = () => {
   };
 
   const loggedInUserSelector = useSelector(loggedInUser)
-  const { email, countryCode, phone, firstName, lastName } = loggedInUserSelector || {}
+  const { email, firstName, lastName } = loggedInUserSelector || {}
 
   // Close dropdown when clicking outside
   useEffect(() => {

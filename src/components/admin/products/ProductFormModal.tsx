@@ -596,7 +596,7 @@ export default function ProductFormModal({ mode, product, onClose }: Props) {
                                             </select>
                                         </div>
                                         <p className="col-span-2 text-xs text-violet-700">
-                                            "Per Variant" lets you set different prices/stock for each color or size.
+                                            {`"Per Variant" lets you set different prices/stock for each color or size.`}
                                         </p>
                                     </div>
                                 )}
@@ -783,7 +783,7 @@ export default function ProductFormModal({ mode, product, onClose }: Props) {
                                     <div className="border-2 border-dashed border-border rounded-xl py-14 text-center text-muted-foreground">
                                         <p className="text-sm font-medium">No variants yet</p>
                                         <p className="text-xs mt-1">
-                                            Click "Add Color" or "Add Size" above
+                                            {`Click "Add Color" or "Add Size" above`}
                                         </p>
                                     </div>
                                 ) : (

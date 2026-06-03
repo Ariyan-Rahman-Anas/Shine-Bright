@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react"
 import { ImagePlus, Star, Bookmark, Trash2, Loader2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useUploadProductImageMutation } from "@/redux/api/productAdminApi"
 import { toast } from "sonner"

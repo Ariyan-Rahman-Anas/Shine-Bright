@@ -2,10 +2,11 @@
 
 import { useState } from "react"
 import { Product, useAdminDeleteProductMutation, useAdminUpdateProductStatusMutation } from "@/redux/api/productAdminApi"
-import { Pencil, Trash2, MoreVertical } from "lucide-react"
+import { Pencil, Trash2 } from "lucide-react"
 import ProductFormModal from "./ProductFormModal"
 import { toast } from "sonner"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 const STATUS_COLORS: Record<string, string> = {
     PUBLISHED: "bg-green-100 text-green-700",
@@ -77,10 +78,12 @@ const ProductsTable = ({ products, isLoading, meta, page, onPageChange }: Props)
                                     <td className="px-4 py-3">
                                         <div className="flex items-center gap-3">
                                             {product.images?.[0]?.photoURL ? (
-                                                <img
+                                                <Image
                                                     src={product.images[0].photoURL}
                                                     alt={product.title}
                                                     className="w-9 h-9 rounded-md object-cover border border-gray-100"
+                                                    width={500}
+                                                    height={500}
                                                 />
                                             ) : (
                                                 <div className="w-9 h-9 rounded-md bg-gray-100 flex items-center justify-center text-gray-400 text-xs">

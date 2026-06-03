@@ -23,9 +23,9 @@ const navItems = [
     { label: "Categories", href: "/admin/categories", icon: Layers },
 ]
 
-const superAdminItems = [
-    { label: "Users", href: "/admin/users", icon: Users },
-]
+// const superAdminItems = [
+//     { label: "Users", href: "/admin/users", icon: Users },
+// ]
 
 const AdminSidebar = () => {
     const pathname = usePathname()
